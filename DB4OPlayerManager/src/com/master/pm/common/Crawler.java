@@ -86,7 +86,7 @@ public class Crawler {
 			entry.setYellowCards(0);
 
 			System.out.println(entry);
-			PlayerDB4O.INST.storePlayer(entry);
+//			PlayerDB4O.INST.storePlayer(entry);
 		    } catch (Exception ex) {
 			ex.printStackTrace();
 			System.out.println(player);

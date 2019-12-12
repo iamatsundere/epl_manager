@@ -26,8 +26,6 @@ public class Profile {
 
     public Profile() {
     }
-
-    
     
     public Profile(String _id, String name, String firstName, String lastName, String club, String clubAbbr, int dob, String country, String countryCode) {
 	this._id = _id;
