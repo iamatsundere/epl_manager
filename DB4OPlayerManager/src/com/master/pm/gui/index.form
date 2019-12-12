@@ -40,8 +40,8 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Ch&#x1b0;&#x1a1;ng tr&#xec;nh">
-                <Property name="tabTitle" type="java.lang.String" value="Ch&#x1b0;&#x1a1;ng tr&#xec;nh"/>
+              <JTabbedPaneConstraints tabName="Player">
+                <Property name="tabTitle" type="java.lang.String" value="Player"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -67,17 +67,25 @@
                                       <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jtxtpos1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jtxtdob1" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jtxtclub1" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jtxtcountry1" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jtxtname1" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jtxtid1" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jtxtposInfo1" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
+                              <EmptySpace pref="55" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jtxtid1" min="-2" pref="158" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jtxtname1" min="-2" pref="158" max="-2" attributes="0"/>
+                                          <Component id="jtxtcountry1" min="-2" pref="158" max="-2" attributes="0"/>
+                                          <Component id="jtxtclub1" min="-2" pref="158" max="-2" attributes="0"/>
+                                          <Component id="jtxtdob1" min="-2" pref="158" max="-2" attributes="0"/>
+                                          <Component id="jtxtpos1" min="-2" pref="158" max="-2" attributes="0"/>
+                                          <Component id="jtxtposInfo1" min="-2" pref="158" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                              <Component id="jScrollPane3" min="-2" pref="452" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
@@ -88,19 +96,18 @@
                               <Component id="jButtonDelete1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jButtonRefresh1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="452" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane3" min="-2" pref="452" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jtxtSearch1" min="-2" pref="203" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButtonSearch1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -108,8 +115,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="0" pref="87" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jtxtid1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -145,26 +152,24 @@
                                   <Component id="jtxtposInfo1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jButtonRefresh1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonDelete1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jButtonAdd2" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonEdit1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jButtonRefresh1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonDelete1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonEdit1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="jtxtSearch1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButtonSearch1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtxtSearch1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonSearch1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="16" max="32767" attributes="0"/>
-                              <Component id="jScrollPane3" min="-2" pref="365" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jScrollPane3" min="-2" pref="353" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
@@ -235,12 +240,57 @@
                 <Component class="javax.swing.JTable" name="jTable3">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
-                        <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                      <Table columnCount="7" rowCount="0">
+                        <Column editable="true" title="id" type="java.lang.Object"/>
+                        <Column editable="true" title="name" type="java.lang.Object"/>
+                        <Column editable="true" title="country" type="java.lang.Object"/>
+                        <Column editable="true" title="club" type="java.lang.Object"/>
+                        <Column editable="true" title="dob" type="java.lang.Object"/>
+                        <Column editable="true" title="pos" type="java.lang.Object"/>
+                        <Column editable="true" title="posInfo" type="java.lang.Object"/>
                       </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -324,13 +374,13 @@
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jtxtpos" max="32767" attributes="0"/>
+                                  <Component id="jtxtposManager" max="32767" attributes="0"/>
                                   <Component id="jtxtdob" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jtxtclub" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jtxtcountry" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jtxtname" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jtxtid" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jtxtposInfo" min="-2" pref="158" max="-2" attributes="0"/>
+                                  <Component id="jtxtclubManager" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jtxtcountryManager" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jtxtnameManager" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jtxtidManager" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jtxtposInfoManager" min="-2" pref="158" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                           </Group>
@@ -345,16 +395,15 @@
                               <Component id="jButtonRefresh" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="452" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jtxtSearch" min="-2" pref="203" max="-2" attributes="0"/>
+                      <Component id="jtxtSearchManager" min="-2" pref="203" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jButtonSearch" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonSearchManager" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -367,22 +416,22 @@
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jtxtid" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtxtidManager" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jtxtname" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtxtnameManager" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jtxtcountry" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtxtcountryManager" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jtxtclub" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtxtclubManager" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -392,26 +441,28 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jtxtpos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtxtposManager" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jtxtposInfo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtxtposInfoManager" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jButtonRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jButtonAdd1" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonEdit" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jButtonRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonEdit" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jtxtSearch" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButtonSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jtxtSearchManager" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonSearchManager" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
@@ -433,9 +484,9 @@
                 <Property name="text" type="java.lang.String" value="Search Name"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jtxtSearch">
+            <Component class="javax.swing.JTextField" name="jtxtSearchManager">
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonSearch">
+            <Component class="javax.swing.JButton" name="jButtonSearchManager">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Search"/>
               </Properties>
@@ -461,17 +512,17 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="jtxtpos">
+            <Component class="javax.swing.JTextField" name="jtxtposManager">
             </Component>
-            <Component class="javax.swing.JTextField" name="jtxtposInfo">
+            <Component class="javax.swing.JTextField" name="jtxtposInfoManager">
             </Component>
-            <Component class="javax.swing.JTextField" name="jtxtid">
+            <Component class="javax.swing.JTextField" name="jtxtidManager">
             </Component>
-            <Component class="javax.swing.JTextField" name="jtxtname">
+            <Component class="javax.swing.JTextField" name="jtxtnameManager">
             </Component>
-            <Component class="javax.swing.JTextField" name="jtxtcountry">
+            <Component class="javax.swing.JTextField" name="jtxtcountryManager">
             </Component>
-            <Component class="javax.swing.JTextField" name="jtxtclub">
+            <Component class="javax.swing.JTextField" name="jtxtclubManager">
             </Component>
             <Component class="javax.swing.JTextField" name="jtxtdob">
             </Component>
@@ -550,8 +601,8 @@
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="tab3">
-                <Property name="tabTitle" type="java.lang.String" value="tab3"/>
+              <JTabbedPaneConstraints tabName="Club">
+                <Property name="tabTitle" type="java.lang.String" value="Club"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -563,33 +614,6 @@
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="jLabel21" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel20" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel22" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                      <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jtxtpos2" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jtxtdob2" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jtxtclub2" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jtxtcountry2" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jtxtname2" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jtxtid2" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jtxtposInfo2" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                               <Component id="jButtonAdd3" min="-2" pref="51" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -598,9 +622,21 @@
                               <Component id="jButtonDelete2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jButtonRefresh2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="18" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jtxtname2" min="-2" pref="158" max="-2" attributes="0"/>
+                                  <Component id="jtxtid2" min="-2" pref="158" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane4" min="-2" pref="452" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -618,8 +654,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="0" pref="87" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jtxtid2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -629,52 +665,25 @@
                                   <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jtxtname2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jtxtcountry2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jtxtclub2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jtxtdob2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jtxtpos2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jtxtposInfo2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jButtonRefresh2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonDelete2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="238" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jButtonAdd3" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonEdit2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jButtonRefresh2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonDelete2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonEdit2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="jtxtSearch2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButtonSearch2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jtxtSearch2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonSearch2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="16" max="32767" attributes="0"/>
-                              <Component id="jScrollPane4" min="-2" pref="365" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jScrollPane4" min="-2" pref="352" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
@@ -693,43 +702,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="name"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel19">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="country"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel20">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="club"/>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel21">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="dob"/>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel22">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="pos"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel23">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="posInfo"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jtxtposInfo2">
-            </Component>
-            <Component class="javax.swing.JTextField" name="jtxtpos2">
-            </Component>
-            <Component class="javax.swing.JTextField" name="jtxtdob2">
-            </Component>
-            <Component class="javax.swing.JTextField" name="jtxtclub2">
-            </Component>
-            <Component class="javax.swing.JTextField" name="jtxtcountry2">
             </Component>
             <Component class="javax.swing.JTextField" name="jtxtname2">
             </Component>
