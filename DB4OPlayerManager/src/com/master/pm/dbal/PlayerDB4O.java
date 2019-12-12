@@ -87,7 +87,7 @@ public class PlayerDB4O {
         }
     }
 
-    public List<Player> listPlayersByQuery(Player query) {
+    public List<Player> searchPlayersByQuery(Player query) {
         ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
         List<Player> listResult = new ArrayList<>();
         try {
