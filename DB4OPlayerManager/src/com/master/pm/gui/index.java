@@ -18,6 +18,7 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author Win10 Pro
@@ -649,7 +650,7 @@ public class index extends javax.swing.JFrame {
                 model.setRowCount(0);
                 JOptionPane.showMessageDialog(null, "Insert sucessful!");
             }
-   
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -657,10 +658,10 @@ public class index extends javax.swing.JFrame {
 
     private void jButtonEditManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditManagerActionPerformed
         try {
-             if (!jtxtfirstNameManager.getText().isEmpty() || !jtxtlastNameManager.getText().isEmpty() || !jtxtclubManager.getText().isEmpty()
+            if (!jtxtfirstNameManager.getText().isEmpty() || !jtxtlastNameManager.getText().isEmpty() || !jtxtclubManager.getText().isEmpty()
                     || !jtxtdobManager.getText().isEmpty() || !jtxtcountryManager.getText().isEmpty() || !jtxtactiveManager.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Update sucessful!");
-             }         
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -668,7 +669,7 @@ public class index extends javax.swing.JFrame {
 
     private void jButtonDeleteManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteManagerActionPerformed
         try {
-           if (!jtxtfirstNameManager.getText().isEmpty()) {
+            if (!jtxtfirstNameManager.getText().isEmpty()) {
                 Manager manager = new Manager();
                 manager.setFirstName(jtxtfirstNameManager.getText());
                 ManagerDB4O.INST.deleteManagerById(manager);
@@ -716,7 +717,7 @@ public class index extends javax.swing.JFrame {
         jtxtclubManager.setText(model.getValueAt(i, 2).toString());
         jtxtdobManager.setText(model.getValueAt(i, 3).toString());
         jtxtcountryManager.setText(model.getValueAt(i, 4).toString());
-        jtxtactiveManager.setText(model.getValueAt(i, 5).toString()); 
+        jtxtactiveManager.setText(model.getValueAt(i, 5).toString());
     }//GEN-LAST:event_jTableManagerMouseClicked
 
     private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
@@ -749,7 +750,7 @@ public class index extends javax.swing.JFrame {
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
         try {
             if (!jtxtdob.getText().isEmpty() || !jtxtpos.getText().isEmpty() || !jtxtposInfo.getText().isEmpty()
-                || !jtxtname.getText().isEmpty() || !jtxtclub.getText().isEmpty() || !jtxtid.getText().isEmpty()) {
+                    || !jtxtname.getText().isEmpty() || !jtxtclub.getText().isEmpty() || !jtxtid.getText().isEmpty()) {
                 java.util.List<Player> listResult = new ArrayList<>();
                 Player player = new Player();
                 player.setId(jtxtid.getText());
@@ -775,7 +776,7 @@ public class index extends javax.swing.JFrame {
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         try {
             if (!jtxtdob.getText().isEmpty() || !jtxtpos.getText().isEmpty() || !jtxtposInfo.getText().isEmpty()
-                || !jtxtname.getText().isEmpty() || !jtxtclub.getText().isEmpty() || !jtxtid.getText().isEmpty()) {
+                    || !jtxtname.getText().isEmpty() || !jtxtclub.getText().isEmpty() || !jtxtid.getText().isEmpty()) {
                 java.util.List<Player> listResult = new ArrayList<>();
                 Player player = new Player();
                 player.setId(jtxtid.getText());
@@ -809,22 +810,28 @@ public class index extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SearchActionPerformed
-     
+
         java.util.List<Player> listResult = new ArrayList<>();
-     //   int fromAge = Integer.parseInt(""+jtxtfromAgeSearch.getText())*1;
-       
-        
+        int fromAge = -1;
+        int toAge = -1;
+        if (!jtxtfromAgeSearch.getText().isEmpty()) {
+            fromAge = Integer.parseInt(jtxtfromAgeSearch.getText());
+        }
+
+        if (!jtxttoAgeSearch.getText().isEmpty()) {
+            toAge = Integer.parseInt(jtxttoAgeSearch.getText());
+        }
+
         listResult = PlayerDB4O.INST.searchPlayersByAdvancedQuery(jtxtNameSearch.getText(), jtxtCountrySearch.getText(), jtxtPosSearch.getText(),
-                 -1, -1);
-        
-         DefaultTableModel model = (DefaultTableModel) jTableSearch.getModel();
+                fromAge, toAge);
+
+        DefaultTableModel model = (DefaultTableModel) jTableSearch.getModel();
         Object[] row = new Object[4];
         for (int i = 0; i < listResult.size(); i++) {
             row[0] = listResult.get(i).getName();
             row[1] = listResult.get(i).getCountry();
-            //row[2] = listResult.get(i).get;
+            row[2] = listResult.get(i).getDob();
             row[3] = listResult.get(i).getPos();
-
             model.addRow(row);
         }
         jTableManager.setModel(model);
@@ -883,8 +890,8 @@ public class index extends javax.swing.JFrame {
         }
         jTable1.setModel(model);
     }
-    
-    public void show_Manager(){
+
+    public void show_Manager() {
         java.util.List<Manager> listResult = new ArrayList<>();
         listResult = ManagerDB4O.INST.listAllManagers();
         DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
@@ -900,8 +907,8 @@ public class index extends javax.swing.JFrame {
         }
         jTableManager.setModel(model);
     }
-        
-    public void show_Club(){
+
+    public void show_Club() {
         java.util.List<Club> listResult = new ArrayList<>();
         listResult = ClubDB4O.INST.listAllClubs();
         DefaultTableModel model = (DefaultTableModel) jTableClub.getModel();
@@ -914,7 +921,7 @@ public class index extends javax.swing.JFrame {
         }
         jTableClub.setModel(model);
     }
-    
+
 //    public void show_Player_Search(Player player) {
 //        java.util.List<Player> listResult = new ArrayList<>();
 //        listResult = PlayerDB4O.INST.searchPlayersByAdvancedQuery(player);
@@ -932,7 +939,7 @@ public class index extends javax.swing.JFrame {
 //        }
 //        jTable1.setModel(model);
 //    }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonAddClub;
