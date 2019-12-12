@@ -809,10 +809,7 @@ public class index extends javax.swing.JFrame {
 	jtxtposInfo.setText(model.getValueAt(i, 6).toString());
     }//GEN-LAST:event_jTable1MouseClicked
 
-    DefaultTableModel searchModel;
     private void jButton_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SearchActionPerformed
-	searchModel.setRowCount(0);
-
         java.util.List<Player> listResult = new ArrayList<>();
         int fromAge = -1;
         int toAge = -1;
@@ -828,6 +825,7 @@ public class index extends javax.swing.JFrame {
                 fromAge, toAge);
 
         DefaultTableModel model = (DefaultTableModel) jTableSearch.getModel();
+	model.setRowCount(0);
         Object[] row = new Object[4];
         for (int i = 0; i < listResult.size(); i++) {
             row[0] = listResult.get(i).getName();
