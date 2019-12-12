@@ -16,8 +16,9 @@ import java.util.List;
 public class Test {
 
     public static void main(String[] args) {
-	PlayerDB4O ada = new PlayerDB4O();
-	List<Player> listAllPlayers = ada.listAllPlayers();
+	List<Player> listAllPlayers = PlayerDB4O.INST.searchPlayersByAdvancedQuery("David", "England", "", -1, -1);
+//	List<Player> listAllPlayers = ada.listAllPlayers();
 	System.out.println(listAllPlayers);
+	PlayerDB4O.INST.closeDB();
     }
 }

@@ -11,13 +11,14 @@ import com.master.pm.dbal.PlayerDB4O;
 import com.master.pm.entity.Club;
 import com.master.pm.entity.Manager;
 import com.master.pm.entity.Player;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
-import javax.swing.RowFilter;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author Win10 Pro
@@ -28,10 +29,10 @@ public class index extends javax.swing.JFrame {
      * Creates new form Player
      */
     public index() {
-        initComponents();
-        show_Player();
-        show_Manager();
-        show_Club();
+	initComponents();
+	show_Player();
+	show_Manager();
+	show_Club();
     }
 
     /**
@@ -61,17 +62,38 @@ public class index extends javax.swing.JFrame {
         jtxtid = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel16 = new javax.swing.JLabel();
-        jtxtSearch = new javax.swing.JTextField();
-        jButtonSearch = new javax.swing.JButton();
         jButtonAdd = new javax.swing.JButton();
         jButtonEdit = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
         jButtonRefresh = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jtxtshortNameClub = new javax.swing.JTextField();
+        jtxtidClub = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTableClub = new javax.swing.JTable();
+        jButtonAddClub = new javax.swing.JButton();
+        jButtonEditClub = new javax.swing.JButton();
+        jButtonDeleteClub = new javax.swing.JButton();
+        jButtonRefreshClub = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        jtxtabbrClub = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jtxtCountrySearch = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jtxtNameSearch = new javax.swing.JTextField();
+        jtxtfromAgeSearch = new javax.swing.JTextField();
+        jtxtPosSearch = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jtxttoAgeSearch = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableSearch = new javax.swing.JTable();
+        jButton_Search = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jtxtSearchManager = new javax.swing.JTextField();
-        jButtonSearchManager = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableManager = new javax.swing.JTable();
         jtxtcountryManager = new javax.swing.JTextField();
@@ -90,22 +112,6 @@ public class index extends javax.swing.JFrame {
         jButtonEditManager = new javax.swing.JButton();
         jButtonDeleteManager = new javax.swing.JButton();
         jButtonRefreshManager = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jtxtshortNameClub = new javax.swing.JTextField();
-        jtxtidClub = new javax.swing.JTextField();
-        jtxtSearchShortNameClub = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
-        jButtonSearchClub = new javax.swing.JButton();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTableClub = new javax.swing.JTable();
-        jButtonAddClub = new javax.swing.JButton();
-        jButtonEditClub = new javax.swing.JButton();
-        jButtonDeleteClub = new javax.swing.JButton();
-        jButtonRefreshClub = new javax.swing.JButton();
-        jLabel19 = new javax.swing.JLabel();
-        jtxtabbrClub = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -140,20 +146,6 @@ public class index extends javax.swing.JFrame {
             }
         });
         jScrollPane3.setViewportView(jTable1);
-
-        jLabel16.setText("Search Name");
-
-        jButtonSearch.setText("Search");
-        jButtonSearch.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonSearchMouseClicked(evt);
-            }
-        });
-        jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSearchActionPerformed(evt);
-            }
-        });
 
         jButtonAdd.setText("Add");
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -202,50 +194,38 @@ public class index extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addComponent(jLabel15)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jtxtid, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(34, 34, 34))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtxtname, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtxtcountry, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtxtclub, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtxtdob, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtxtpos, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtxtposInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtxtid, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtname, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtcountry, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtclub, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtdob, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtpos, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtposInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jButtonEdit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonDelete)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonRefresh)
-                        .addGap(452, 452, 452))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel16)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonRefresh)))
                 .addGap(18, 18, 18)
-                .addComponent(jtxtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonSearch)
-                .addGap(72, 72, 72))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 18, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(jtxtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(jtxtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addGap(23, 23, 23)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(jtxtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -275,27 +255,225 @@ public class index extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jButtonRefresh)
                                 .addComponent(jButtonDelete)
-                                .addComponent(jButtonEdit))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel16)
-                            .addComponent(jtxtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonSearch))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(21, 21, 21))
+                                .addComponent(jButtonEdit)))
+                        .addGap(0, 57, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Player", jPanel2);
 
-        jLabel1.setText("Search Name");
+        jLabel17.setText("id");
+        jLabel17.setToolTipText("");
 
-        jButtonSearchManager.setText("Search");
-        jButtonSearchManager.addActionListener(new java.awt.event.ActionListener() {
+        jLabel18.setText("shortName");
+
+        jTableClub.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "id", "shortName", "abbr"
+            }
+        ));
+        jScrollPane4.setViewportView(jTableClub);
+
+        jButtonAddClub.setText("Add");
+        jButtonAddClub.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSearchManagerActionPerformed(evt);
+                jButtonAddClubActionPerformed(evt);
             }
         });
+
+        jButtonEditClub.setText("Edit");
+        jButtonEditClub.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditClubActionPerformed(evt);
+            }
+        });
+
+        jButtonDeleteClub.setText("Delete");
+        jButtonDeleteClub.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteClubActionPerformed(evt);
+            }
+        });
+
+        jButtonRefreshClub.setText("Refresh");
+        jButtonRefreshClub.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRefreshClubActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setText("abbr");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel17)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jtxtidClub, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jtxtabbrClub, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jtxtshortNameClub, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(15, 15, 15))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jButtonAddClub, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonEditClub)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonDeleteClub)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonRefreshClub)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jtxtidClub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(jtxtshortNameClub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(jtxtabbrClub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonAddClub, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonRefreshClub)
+                        .addComponent(jButtonDeleteClub)
+                        .addComponent(jButtonEditClub)))
+                .addGap(67, 67, 67))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Club", jPanel3);
+
+        jLabel20.setText("Country");
+
+        jLabel21.setText("Name");
+
+        jLabel22.setText("Pos");
+
+        jLabel23.setText("Age");
+
+        jLabel25.setText("-");
+
+        jTableSearch.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Country", "Age", "Pos"
+            }
+        ));
+        jScrollPane2.setViewportView(jTableSearch);
+
+        jButton_Search.setText("Search");
+        jButton_Search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_SearchActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jtxtNameSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jtxtCountrySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(57, 57, 57)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jtxtfromAgeSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtxttoAgeSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel22)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jtxtPosSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(31, 31, 31)
+                .addComponent(jButton_Search)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
+                            .addComponent(jtxtNameSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(jtxtCountrySearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel23)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jtxtfromAgeSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtxttoAgeSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel25)
+                                .addComponent(jButton_Search)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel22)
+                            .addComponent(jtxtPosSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Search", jPanel4);
 
         jTableManager.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -359,61 +537,49 @@ public class index extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel4)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel8)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jtxtlastNameManager, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxtclubManager, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxtfirstNameManager, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxtdobManager, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxtcountryManager, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxtactiveManager, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(43, 43, 43))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jtxtlastNameManager, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtxtclubManager, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtxtfirstNameManager, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtxtdobManager, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtxtcountryManager, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtxtactiveManager, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 2, Short.MAX_VALUE)
                                 .addComponent(jButtonAddManager, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButtonEditManager)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButtonDeleteManager)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButtonRefreshManager))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButtonRefreshManager)))
+                        .addGap(33, 33, 33))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(28, 28, 28)
-                        .addComponent(jtxtSearchManager, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonSearchManager)
-                        .addGap(58, 58, 58))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 87, Short.MAX_VALUE)
+                        .addGap(48, 48, 48)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(jtxtfirstNameManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -437,7 +603,7 @@ public class index extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jtxtactiveManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(86, 86, 86)
+                        .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonAddManager, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -445,150 +611,12 @@ public class index extends javax.swing.JFrame {
                                 .addComponent(jButtonDeleteManager)
                                 .addComponent(jButtonEditManager))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jtxtSearchManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButtonSearchManager))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(21, 21, 21))
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Manager", jPanel1);
-
-        jLabel17.setText("id");
-        jLabel17.setToolTipText("");
-
-        jLabel18.setText("shortName");
-
-        jLabel24.setText("Search Name");
-
-        jButtonSearchClub.setText("Search");
-
-        jTableClub.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "id", "shortName", "abbr"
-            }
-        ));
-        jScrollPane4.setViewportView(jTableClub);
-
-        jButtonAddClub.setText("Add");
-        jButtonAddClub.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddClubActionPerformed(evt);
-            }
-        });
-
-        jButtonEditClub.setText("Edit");
-        jButtonEditClub.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEditClubActionPerformed(evt);
-            }
-        });
-
-        jButtonDeleteClub.setText("Delete");
-        jButtonDeleteClub.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDeleteClubActionPerformed(evt);
-            }
-        });
-
-        jButtonRefreshClub.setText("Refresh");
-        jButtonRefreshClub.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRefreshClubActionPerformed(evt);
-            }
-        });
-
-        jLabel19.setText("abbr");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jButtonAddClub, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonEditClub)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonDeleteClub)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonRefreshClub)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel17)
-                                    .addComponent(jLabel18))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jtxtshortNameClub, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtxtidClub, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jtxtabbrClub, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(35, 35, 35)))
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel24)
-                .addGap(18, 18, 18)
-                .addComponent(jtxtSearchShortNameClub, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButtonSearchClub)
-                .addGap(60, 60, 60))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 99, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(jtxtidClub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(jtxtshortNameClub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19)
-                            .addComponent(jtxtabbrClub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(194, 194, 194)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonAddClub, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButtonRefreshClub)
-                                .addComponent(jButtonDeleteClub)
-                                .addComponent(jButtonEditClub))))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtxtSearchShortNameClub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonSearchClub)
-                            .addComponent(jLabel24))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(21, 21, 21))
-        );
-
-        jTabbedPane1.addTab("Club", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -598,340 +626,325 @@ public class index extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddManagerActionPerformed
-        try {
-            if (!jtxtfirstNameManager.getText().isEmpty() || !jtxtlastNameManager.getText().isEmpty() || !jtxtclubManager.getText().isEmpty()
-                    || !jtxtdobManager.getText().isEmpty() || !jtxtcountryManager.getText().isEmpty() || !jtxtactiveManager.getText().isEmpty()) {
-                Manager manager = new Manager();
-                manager.setFirstName(jtxtfirstNameManager.getText());
-                manager.setLastName(jtxtlastNameManager.getText());
-                manager.setClub(jtxtclubManager.getText());
-                manager.setDob(Integer.parseInt(jtxtdobManager.getText()));
-                manager.setCountry(jtxtcountryManager.getText());
-                manager.setActive(Boolean.parseBoolean(jtxtactiveManager.getText()));
-                ManagerDB4O.INST.storeManager(manager);
-                DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
-                model.setRowCount(0);
-                JOptionPane.showMessageDialog(null, "Insert sucessful!");
-            }
-   
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+	try {
+	    if (!jtxtfirstNameManager.getText().isEmpty() || !jtxtlastNameManager.getText().isEmpty() || !jtxtclubManager.getText().isEmpty()
+			    || !jtxtdobManager.getText().isEmpty() || !jtxtcountryManager.getText().isEmpty() || !jtxtactiveManager.getText().isEmpty()) {
+		Manager manager = new Manager();
+		manager.setFirstName(jtxtfirstNameManager.getText());
+		manager.setLastName(jtxtlastNameManager.getText());
+		manager.setClub(jtxtclubManager.getText());
+		manager.setDob(Integer.parseInt(jtxtdobManager.getText()));
+		manager.setCountry(jtxtcountryManager.getText());
+		manager.setActive(Boolean.parseBoolean(jtxtactiveManager.getText()));
+		ManagerDB4O.INST.storeManager(manager);
+		DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
+		model.setRowCount(0);
+		JOptionPane.showMessageDialog(null, "Insert sucessful!");
+	    }
+
+	} catch (Exception e) {
+	    JOptionPane.showMessageDialog(null, e);
+	}
     }//GEN-LAST:event_jButtonAddManagerActionPerformed
 
     private void jButtonEditManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditManagerActionPerformed
-        try {
-             if (!jtxtfirstNameManager.getText().isEmpty() || !jtxtlastNameManager.getText().isEmpty() || !jtxtclubManager.getText().isEmpty()
-                    || !jtxtdobManager.getText().isEmpty() || !jtxtcountryManager.getText().isEmpty() || !jtxtactiveManager.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Update sucessful!");
-             }         
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+	try {
+	    if (!jtxtfirstNameManager.getText().isEmpty() || !jtxtlastNameManager.getText().isEmpty() || !jtxtclubManager.getText().isEmpty()
+			    || !jtxtdobManager.getText().isEmpty() || !jtxtcountryManager.getText().isEmpty() || !jtxtactiveManager.getText().isEmpty()) {
+		JOptionPane.showMessageDialog(null, "Update sucessful!");
+	    }
+	} catch (Exception e) {
+	    JOptionPane.showMessageDialog(null, e);
+	}
     }//GEN-LAST:event_jButtonEditManagerActionPerformed
 
     private void jButtonDeleteManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteManagerActionPerformed
-        try {
-           if (!jtxtfirstNameManager.getText().isEmpty()) {
-                Manager manager = new Manager();
-                manager.setFirstName(jtxtfirstNameManager.getText());
-                ManagerDB4O.INST.deleteManagerById(manager);
-                DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
-                model.setRowCount(0);
-                show_Manager();
-                JOptionPane.showMessageDialog(null, "Deleted sucessful!");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+	try {
+	    if (!jtxtfirstNameManager.getText().isEmpty()) {
+		Manager manager = new Manager();
+		manager.setFirstName(jtxtfirstNameManager.getText());
+		ManagerDB4O.INST.deleteManagerById(manager);
+		DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
+		model.setRowCount(0);
+		show_Manager();
+		JOptionPane.showMessageDialog(null, "Deleted sucessful!");
+	    }
+	} catch (Exception e) {
+	    JOptionPane.showMessageDialog(null, e);
+	}
     }//GEN-LAST:event_jButtonDeleteManagerActionPerformed
 
     private void jButtonRefreshManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshManagerActionPerformed
-        jtxtfirstNameManager.setText("");
-        jtxtlastNameManager.setText("");
-        jtxtcountryManager.setText("");
-        jtxtclubManager.setText("");
-        jtxtdobManager.setText("");
-        jtxtcountryManager.setText("");
-        jtxtactiveManager.setText("");
+	jtxtfirstNameManager.setText("");
+	jtxtlastNameManager.setText("");
+	jtxtcountryManager.setText("");
+	jtxtclubManager.setText("");
+	jtxtdobManager.setText("");
+	jtxtcountryManager.setText("");
+	jtxtactiveManager.setText("");
     }//GEN-LAST:event_jButtonRefreshManagerActionPerformed
 
-    private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        try {
-            if (!jtxtdob.getText().isEmpty() || !jtxtpos.getText().isEmpty() || !jtxtposInfo.getText().isEmpty()
-                    || !jtxtname.getText().isEmpty() || !jtxtclub.getText().isEmpty() || !jtxtid.getText().isEmpty()) {
-                java.util.List<Player> listResult = new ArrayList<>();
-                Player player = new Player();
-                player.setId(jtxtid.getText());
-                player.setName(jtxtname.getText());
-                player.setCountry(jtxtcountry.getText());
-                player.setDob(Integer.parseInt(jtxtdob.getText()));
-                player.setClub(jtxtclub.getText());
-                player.setPos(jtxtpos.getText());
-                player.setPosInfo(jtxtposInfo.getText());
-                PlayerDB4O.INST.storePlayer(player);
-                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-                model.setRowCount(0);
-                show_Player();
-                JOptionPane.showMessageDialog(null, "Insert sucessful!");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }//GEN-LAST:event_jButtonAddActionPerformed
-
-    private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
-        try {
-            if (!jtxtdob.getText().isEmpty() || !jtxtpos.getText().isEmpty() || !jtxtposInfo.getText().isEmpty()
-                    || !jtxtname.getText().isEmpty() || !jtxtclub.getText().isEmpty() || !jtxtid.getText().isEmpty()) {
-                java.util.List<Player> listResult = new ArrayList<>();
-                Player player = new Player();
-                player.setId(jtxtid.getText());
-                player.setName(jtxtname.getText());
-                player.setCountry(jtxtcountry.getText());
-                player.setDob(Integer.parseInt(jtxtdob.getText()));
-                player.setClub(jtxtclub.getText());
-                player.setPos(jtxtpos.getText());
-                player.setPosInfo(jtxtposInfo.getText());
-                PlayerDB4O.INST.updatePlayerById(player);
-
-                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-                model.setRowCount(0);
-                show_Player();
-
-                JOptionPane.showMessageDialog(null, "Update sucessful!");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }//GEN-LAST:event_jButtonEditActionPerformed
-
-    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
-        try {
-            if (!jtxtid.getText().isEmpty()) {
-                Player player = new Player();
-                player.setId(jtxtid.getText());
-                PlayerDB4O.INST.deletePlayerById(player);
-
-                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-                model.setRowCount(0);
-                show_Player();
-                JOptionPane.showMessageDialog(null, "Deleted sucessful!");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }//GEN-LAST:event_jButtonDeleteActionPerformed
-
-    private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
-        jtxtid.setText("");
-        jtxtname.setText("");
-        jtxtcountry.setText("");
-        jtxtclub.setText("");
-        jtxtdob.setText("");
-        jtxtpos.setText("");
-        jtxtposInfo.setText("");
-    }//GEN-LAST:event_jButtonRefreshActionPerformed
-
     private void jButtonAddClubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddClubActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_jButtonAddClubActionPerformed
 
     private void jButtonEditClubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditClubActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_jButtonEditClubActionPerformed
 
     private void jButtonDeleteClubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteClubActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_jButtonDeleteClubActionPerformed
 
     private void jButtonRefreshClubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshClubActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_jButtonRefreshClubActionPerformed
 
-    private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
-//        Player player = new Player();
-//        player.setName(jtxtSearch.getText());
-//        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-//        TableRowSorter<DefaultTableModel> tb = new TableRowSorter<DefaultTableModel>(model);
-//        jTable1.setRowSorter(tb);
-//        tb.setRowFilter(RowFilter.regexFilter(player.getName()));
-        java.util.List<Player> listResult = new ArrayList<>();
-        Player player=new Player();
-        player.setPosInfo(jtxtSearch.getText());
-        show_Player_Search(player);
+    private void jTableManagerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableManagerMouseClicked
+	int i = jTableManager.getSelectedRow();
+	TableModel model = jTableManager.getModel();
+	jtxtfirstNameManager.setText(model.getValueAt(i, 0).toString());
+	jtxtlastNameManager.setText(model.getValueAt(i, 1).toString());
+	jtxtclubManager.setText(model.getValueAt(i, 2).toString());
+	jtxtdobManager.setText(model.getValueAt(i, 3).toString());
+	jtxtcountryManager.setText(model.getValueAt(i, 4).toString());
+	jtxtactiveManager.setText(model.getValueAt(i, 5).toString());
+    }//GEN-LAST:event_jTableManagerMouseClicked
 
-    }//GEN-LAST:event_jButtonSearchActionPerformed
+    private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
+	jtxtid.setText("");
+	jtxtname.setText("");
+	jtxtcountry.setText("");
+	jtxtclub.setText("");
+	jtxtdob.setText("");
+	jtxtpos.setText("");
+	jtxtposInfo.setText("");
+    }//GEN-LAST:event_jButtonRefreshActionPerformed
 
-    private void jButtonSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSearchMouseClicked
-//        Player player = new Player();
-//        player.setName(jtxtSearch.getText());
-//        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-//        TableRowSorter<DefaultTableModel> tb = new TableRowSorter<DefaultTableModel>(model);
-//        jTable1.setRowSorter(tb);
-//        tb.setRowFilter(RowFilter.regexFilter(player.getName()));
-        
-        java.util.List<Player> listResult = new ArrayList<>();
-        Player player=new Player();
-        player.setName(jtxtSearch.getText());
-        listResult = PlayerDB4O.INST.listPlayersByQuery(player);
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        Object[] row = new Object[7];
-        for (int i = 0; i < listResult.size(); i++) {
-            row[0] = listResult.get(i).getId();
-            row[1] = listResult.get(i).getName();
-            row[2] = listResult.get(i).getCountry();
-            row[3] = listResult.get(i).getClub();
-            row[4] = listResult.get(i).getDob();
-            row[5] = listResult.get(i).getPos();
-            row[6] = listResult.get(i).getPosInfo();
-            model.addRow(row);
-        }
-        jTable1.setModel(model);
-    }//GEN-LAST:event_jButtonSearchMouseClicked
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+	try {
+	    if (!jtxtid.getText().isEmpty()) {
+		Player player = new Player();
+		player.setId(jtxtid.getText());
+		PlayerDB4O.INST.deletePlayerById(player);
+
+		DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+		model.setRowCount(0);
+		show_Player();
+		JOptionPane.showMessageDialog(null, "Deleted sucessful!");
+	    }
+	} catch (Exception e) {
+	    JOptionPane.showMessageDialog(null, e);
+	}
+    }//GEN-LAST:event_jButtonDeleteActionPerformed
+
+    private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
+	try {
+	    if (!jtxtdob.getText().isEmpty() || !jtxtpos.getText().isEmpty() || !jtxtposInfo.getText().isEmpty()
+			    || !jtxtname.getText().isEmpty() || !jtxtclub.getText().isEmpty() || !jtxtid.getText().isEmpty()) {
+		java.util.List<Player> listResult = new ArrayList<>();
+		Player player = new Player();
+		player.setId(jtxtid.getText());
+		player.setName(jtxtname.getText());
+		player.setCountry(jtxtcountry.getText());
+		player.setDob(Integer.parseInt(jtxtdob.getText()));
+		player.setClub(jtxtclub.getText());
+		player.setPos(jtxtpos.getText());
+		player.setPosInfo(jtxtposInfo.getText());
+		PlayerDB4O.INST.updatePlayerById(player);
+
+		DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+		model.setRowCount(0);
+		show_Player();
+
+		JOptionPane.showMessageDialog(null, "Update sucessful!");
+	    }
+	} catch (Exception e) {
+	    JOptionPane.showMessageDialog(null, e);
+	}
+    }//GEN-LAST:event_jButtonEditActionPerformed
+
+    private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
+	try {
+	    if (!jtxtdob.getText().isEmpty() || !jtxtpos.getText().isEmpty() || !jtxtposInfo.getText().isEmpty()
+			    || !jtxtname.getText().isEmpty() || !jtxtclub.getText().isEmpty() || !jtxtid.getText().isEmpty()) {
+		java.util.List<Player> listResult = new ArrayList<>();
+		Player player = new Player();
+		player.setId(jtxtid.getText());
+		player.setName(jtxtname.getText());
+		player.setCountry(jtxtcountry.getText());
+		player.setDob(Integer.parseInt(jtxtdob.getText()));
+		player.setClub(jtxtclub.getText());
+		player.setPos(jtxtpos.getText());
+		player.setPosInfo(jtxtposInfo.getText());
+		PlayerDB4O.INST.storePlayer(player);
+		DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+		model.setRowCount(0);
+		show_Player();
+		JOptionPane.showMessageDialog(null, "Insert sucessful!");
+	    }
+	} catch (Exception e) {
+	    JOptionPane.showMessageDialog(null, e);
+	}
+    }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        int i = jTable1.getSelectedRow();
-        TableModel model = jTable1.getModel();
-        jtxtid.setText(model.getValueAt(i, 0).toString());
-        jtxtname.setText(model.getValueAt(i, 1).toString());
-        jtxtcountry.setText(model.getValueAt(i, 2).toString());
-        jtxtclub.setText(model.getValueAt(i, 3).toString());
-        jtxtdob.setText(model.getValueAt(i, 4).toString());
-        jtxtpos.setText(model.getValueAt(i, 5).toString());
-        jtxtposInfo.setText(model.getValueAt(i, 6).toString());      
+	int i = jTable1.getSelectedRow();
+	TableModel model = jTable1.getModel();
+	jtxtid.setText(model.getValueAt(i, 0).toString());
+	jtxtname.setText(model.getValueAt(i, 1).toString());
+	jtxtcountry.setText(model.getValueAt(i, 2).toString());
+	jtxtclub.setText(model.getValueAt(i, 3).toString());
+	jtxtdob.setText(model.getValueAt(i, 4).toString());
+	jtxtpos.setText(model.getValueAt(i, 5).toString());
+	jtxtposInfo.setText(model.getValueAt(i, 6).toString());
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void jButtonSearchManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchManagerActionPerformed
-        Manager manager = new Manager();
-        manager.setFirstName(jtxtSearchManager.getText());
-        DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
-        TableRowSorter<DefaultTableModel> tb = new TableRowSorter<DefaultTableModel>(model);
-        jTableManager.setRowSorter(tb);
-        tb.setRowFilter(RowFilter.regexFilter(manager.getFirstName()));
-    }//GEN-LAST:event_jButtonSearchManagerActionPerformed
+    private void jButton_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SearchActionPerformed
+	java.util.List<Player> listResult = new ArrayList<>();
+	int fromAge = -1;
+	int toAge = -1;
+	if (!jtxtfromAgeSearch.getText().isEmpty()) {
+	    fromAge = Integer.parseInt(jtxtfromAgeSearch.getText());
+	}
 
-    private void jTableManagerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableManagerMouseClicked
-        int i = jTableManager.getSelectedRow();
-        TableModel model = jTableManager.getModel();
-        jtxtfirstNameManager.setText(model.getValueAt(i, 0).toString());
-        jtxtlastNameManager.setText(model.getValueAt(i, 1).toString());
-        jtxtclubManager.setText(model.getValueAt(i, 2).toString());
-        jtxtdobManager.setText(model.getValueAt(i, 3).toString());
-        jtxtcountryManager.setText(model.getValueAt(i, 4).toString());
-        jtxtactiveManager.setText(model.getValueAt(i, 5).toString()); 
-    }//GEN-LAST:event_jTableManagerMouseClicked
+	if (!jtxttoAgeSearch.getText().isEmpty()) {
+	    toAge = Integer.parseInt(jtxttoAgeSearch.getText());
+	}
+
+	listResult = PlayerDB4O.INST.searchPlayersByAdvancedQuery(jtxtNameSearch.getText(), jtxtCountrySearch.getText(), jtxtPosSearch.getText(),
+			fromAge, toAge);
+
+	System.out.println(listResult);
+	DateFormat df = new SimpleDateFormat("dd/MM/YYYY");
+
+	DefaultTableModel model = (DefaultTableModel) jTableSearch.getModel();
+	model.setRowCount(0);
+	Object[] row = new Object[4];
+
+	for (int i = 0; i < listResult.size(); i++) {
+	    row[0] = listResult.get(i).getName();
+	    row[1] = listResult.get(i).getCountry();
+
+	    row[2] = df.format(new Date((long) (listResult.get(i).getDob()) * 1000L));
+	    row[3] = listResult.get(i).getPos();
+	    model.addRow(row);
+	}
+	jTableManager.setModel(model);
+    }//GEN-LAST:event_jButton_SearchActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+	/* Set the Nimbus look and feel */
+	//<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+	/* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+	 */
+	try {
+	    for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+		if ("Nimbus".equals(info.getName())) {
+		    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+		    break;
+		}
+	    }
+	} catch (ClassNotFoundException ex) {
+	    java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	} catch (InstantiationException ex) {
+	    java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	} catch (IllegalAccessException ex) {
+	    java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+	    java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	}
+	//</editor-fold>
+	//</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new index().setVisible(true);
-            }
-        });
+	/* Create and display the form */
+	java.awt.EventQueue.invokeLater(new Runnable() {
+	    public void run() {
+		new index().setVisible(true);
+	    }
+	});
     }
 
     public void show_Player() {
-        java.util.List<Player> listResult = new ArrayList<>();
-        listResult = PlayerDB4O.INST.listAllPlayers();
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        Object[] row = new Object[7];
-        for (int i = 0; i < listResult.size(); i++) {
-            row[0] = listResult.get(i).getId();
-            row[1] = listResult.get(i).getName();
-            row[2] = listResult.get(i).getCountry();
-            row[3] = listResult.get(i).getClub();
-            row[4] = listResult.get(i).getDob();
-            row[5] = listResult.get(i).getPos();
-            row[6] = listResult.get(i).getPosInfo();
-            model.addRow(row);
-        }
-        jTable1.setModel(model);
+	java.util.List<Player> listResult = new ArrayList<>();
+	listResult = PlayerDB4O.INST.listAllPlayers();
+	DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+	Object[] row = new Object[7];
+	for (int i = 0; i < listResult.size(); i++) {
+	    row[0] = listResult.get(i).getId();
+	    row[1] = listResult.get(i).getName();
+	    row[2] = listResult.get(i).getCountry();
+	    row[3] = listResult.get(i).getClub();
+	    row[4] = listResult.get(i).getDob();
+	    row[5] = listResult.get(i).getPos();
+	    row[6] = listResult.get(i).getPosInfo();
+	    model.addRow(row);
+	}
+	jTable1.setModel(model);
     }
-    
-    public void show_Manager(){
-        java.util.List<Manager> listResult = new ArrayList<>();
-        listResult = ManagerDB4O.INST.listAllManagers();
-        DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
-        Object[] row = new Object[6];
-        for (int i = 0; i < listResult.size(); i++) {
-            row[0] = listResult.get(i).getFirstName();
-            row[1] = listResult.get(i).getLastName();
-            row[2] = listResult.get(i).getClub();
-            row[3] = listResult.get(i).getDob();
-            row[4] = listResult.get(i).getCountry();
-            row[5] = listResult.get(i).isActive();
-            model.addRow(row);
-        }
-        jTableManager.setModel(model);
+
+    public void show_Manager() {
+	java.util.List<Manager> listResult = new ArrayList<>();
+	listResult = ManagerDB4O.INST.listAllManagers();
+	DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
+	Object[] row = new Object[6];
+	for (int i = 0; i < listResult.size(); i++) {
+	    row[0] = listResult.get(i).getFirstName();
+	    row[1] = listResult.get(i).getLastName();
+	    row[2] = listResult.get(i).getClub();
+	    row[3] = listResult.get(i).getDob();
+	    row[4] = listResult.get(i).getCountry();
+	    row[5] = listResult.get(i).isActive();
+	    model.addRow(row);
+	}
+	jTableManager.setModel(model);
     }
-        
-    public void show_Club(){
-        java.util.List<Club> listResult = new ArrayList<>();
-        listResult = ClubDB4O.INST.listAllClubs();
-        DefaultTableModel model = (DefaultTableModel) jTableClub.getModel();
-        Object[] row = new Object[3];
-        for (int i = 0; i < listResult.size(); i++) {
-            row[0] = listResult.get(i).getId();
-            row[1] = listResult.get(i).getShortName();
-            row[2] = listResult.get(i).getAbbr();
-            model.addRow(row);
-        }
-        jTableClub.setModel(model);
+
+    public void show_Club() {
+	java.util.List<Club> listResult = new ArrayList<>();
+	listResult = ClubDB4O.INST.listAllClubs();
+	DefaultTableModel model = (DefaultTableModel) jTableClub.getModel();
+	Object[] row = new Object[3];
+	for (int i = 0; i < listResult.size(); i++) {
+	    row[0] = listResult.get(i).getId();
+	    row[1] = listResult.get(i).getShortName();
+	    row[2] = listResult.get(i).getAbbr();
+	    model.addRow(row);
+	}
+	jTableClub.setModel(model);
     }
-    
-    public void show_Player_Search(Player player) {
-        java.util.List<Player> listResult = new ArrayList<>();
-        listResult = PlayerDB4O.INST.listPlayersByQuery(player);
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        Object[] row = new Object[7];
-        for (int i = 0; i < listResult.size(); i++) {
-            row[0] = listResult.get(i).getId();
-            row[1] = listResult.get(i).getName();
-            row[2] = listResult.get(i).getCountry();
-            row[3] = listResult.get(i).getClub();
-            row[4] = listResult.get(i).getDob();
-            row[5] = listResult.get(i).getPos();
-            row[6] = listResult.get(i).getPosInfo();
-            model.addRow(row);
-        }
-        jTable1.setModel(model);
-    }
-    
+
+//    public void show_Player_Search(Player player) {
+//        java.util.List<Player> listResult = new ArrayList<>();
+//        listResult = PlayerDB4O.INST.searchPlayersByAdvancedQuery(player);
+//        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+//        Object[] row = new Object[7];
+//        for (int i = 0; i < listResult.size(); i++) {
+//            row[0] = listResult.get(i).getId();
+//            row[1] = listResult.get(i).getName();
+//            row[2] = listResult.get(i).getCountry();
+//            row[3] = listResult.get(i).getClub();
+//            row[4] = listResult.get(i).getDob();
+//            row[5] = listResult.get(i).getPos();
+//            row[6] = listResult.get(i).getPosInfo();
+//            model.addRow(row);
+//        }
+//        jTable1.setModel(model);
+//    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonAddClub;
@@ -945,22 +958,22 @@ public class index extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRefresh;
     private javax.swing.JButton jButtonRefreshClub;
     private javax.swing.JButton jButtonRefreshManager;
-    private javax.swing.JButton jButtonSearch;
-    private javax.swing.JButton jButtonSearchClub;
-    private javax.swing.JButton jButtonSearchManager;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton_Search;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -970,16 +983,19 @@ public class index extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTableClub;
     private javax.swing.JTable jTableManager;
-    private javax.swing.JTextField jtxtSearch;
-    private javax.swing.JTextField jtxtSearchManager;
-    private javax.swing.JTextField jtxtSearchShortNameClub;
+    private javax.swing.JTable jTableSearch;
+    private javax.swing.JTextField jtxtCountrySearch;
+    private javax.swing.JTextField jtxtNameSearch;
+    private javax.swing.JTextField jtxtPosSearch;
     private javax.swing.JTextField jtxtabbrClub;
     private javax.swing.JTextField jtxtactiveManager;
     private javax.swing.JTextField jtxtclub;
@@ -989,6 +1005,7 @@ public class index extends javax.swing.JFrame {
     private javax.swing.JTextField jtxtdob;
     private javax.swing.JTextField jtxtdobManager;
     private javax.swing.JTextField jtxtfirstNameManager;
+    private javax.swing.JTextField jtxtfromAgeSearch;
     private javax.swing.JTextField jtxtid;
     private javax.swing.JTextField jtxtidClub;
     private javax.swing.JTextField jtxtlastNameManager;
@@ -996,5 +1013,6 @@ public class index extends javax.swing.JFrame {
     private javax.swing.JTextField jtxtpos;
     private javax.swing.JTextField jtxtposInfo;
     private javax.swing.JTextField jtxtshortNameClub;
+    private javax.swing.JTextField jtxttoAgeSearch;
     // End of variables declaration//GEN-END:variables
 }
