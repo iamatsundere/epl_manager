@@ -19,7 +19,7 @@ import java.util.List;
 public class ManagerDB4O {
 
     public static final ManagerDB4O INST = new ManagerDB4O();
-    private static final String DB4OFILENAME = "data/clubs_db";
+    private static final String DB4OFILENAME = "data/managers_db";
 
     public void base() {
         ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);

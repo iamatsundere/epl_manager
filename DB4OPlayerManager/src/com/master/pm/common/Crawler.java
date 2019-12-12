@@ -7,6 +7,7 @@ package com.master.pm.common;
 
 import com.master.pm.dbal.ClubDB4O;
 import com.master.pm.dbal.ManagerDB4O;
+import com.master.pm.dbal.PlayerDB4O;
 import com.master.pm.entity.Club;
 import com.master.pm.entity.Manager;
 import com.master.pm.entity.Player;
@@ -49,7 +50,8 @@ public class Crawler {
 
 			if (player.containsKey("currentTeam")) {
 			    JSONObject currentTeam = (JSONObject) player.get("currentTeam");
-			    entry.setClub(currentTeam.get("name").toString());
+			    JSONObject altIds = (JSONObject) currentTeam.get("altIds");
+			    entry.setClub(altIds.get("opta").toString());
 			}
 
 			JSONObject nationalTeam = (JSONObject) player.get("nationalTeam");
@@ -91,7 +93,7 @@ public class Crawler {
 			entry.setYellowCards(0);
 
 			System.out.println(entry);
-//			PlayerDB4O.INST.storePlayer(entry);
+			PlayerDB4O.INST.storePlayer(entry);
 		    } catch (Exception ex) {
 			ex.printStackTrace();
 			System.out.println(player);
@@ -136,11 +138,11 @@ public class Crawler {
 			}
 		    } catch (Exception ex) {
 			ex.printStackTrace();
-			System.out.println(player);
 		    }
 		}
 	    }
 	    for (Map.Entry<String, Club> entryMap : mapClubs.entrySet()) {
+		System.out.println(entryMap.getValue());
 		ClubDB4O.INST.storeClub(entryMap.getValue());
 	    }
 	} catch (Exception ex) {
@@ -204,8 +206,9 @@ public class Crawler {
 
     public static void main(String[] args) {
 	Crawler c = new Crawler();
-//	c.crawlPlayer();
-//	c.crawlClub();
+	c.crawlPlayer();
+	c.crawlClub();
 	c.crawlManager();
+	System.exit(0);
     }
 }
