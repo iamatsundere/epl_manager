@@ -18,23 +18,13 @@ public class Profile {
 
     private String _id;
     private String name;
-    private String firstName;
-    private String lastName;
-    private String club;
-    private int dob;
-    private String country;
 
     public Profile() {
     }
     
-    public Profile(String _id, String name, String firstName, String lastName, String club, String clubAbbr, int dob, String country, String countryCode) {
+    public Profile(String _id, String name, int dob) {
 	this._id = _id;
 	this.name = name;
-	this.firstName = firstName;
-	this.lastName = lastName;
-	this.club = club;
-	this.dob = dob;
-	this.country = country;
     }
 
     public String getId() {
@@ -51,46 +41,6 @@ public class Profile {
 
     public void setName(String name) {
 	this.name = name;
-    }
-
-    public String getFirstName() {
-	return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-	this.firstName = firstName;
-    }
-
-    public String getLastName() {
-	return lastName;
-    }
-
-    public void setLastName(String lastName) {
-	this.lastName = lastName;
-    }
-
-    public String getClub() {
-	return club;
-    }
-
-    public void setClub(String club) {
-	this.club = club;
-    }
-
-    public int getDob() {
-	return dob;
-    }
-
-    public void setDob(int dob) {
-	this.dob = dob;
-    }
-
-    public String getCountry() {
-	return country;
-    }
-
-    public void setCountry(String country) {
-	this.country = country;
     }
 
     @Override

@@ -9,7 +9,7 @@ package com.master.pm.entity;
  *
  * @author phuctt
  */
-public class Manager extends Profile {
+public class Manager extends Footballer {
     private boolean active;
 
     public Manager() {

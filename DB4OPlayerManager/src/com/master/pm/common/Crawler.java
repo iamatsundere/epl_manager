@@ -5,9 +5,12 @@
  */
 package com.master.pm.common;
 
-import com.master.pm.dbal.PlayerDB4O;
+import com.master.pm.dbal.ClubDB4O;
+import com.master.pm.entity.Club;
 import com.master.pm.entity.Player;
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -101,8 +104,61 @@ public class Crawler {
 	}
     }
 
+    public void crawlClub() {
+	try {
+	    String json = Utils.Instance.readAllBytesJava("resources/players.json");
+
+	    JSONParser parser = new JSONParser();
+	    JSONArray jsonArr = (JSONArray) parser.parse(json);
+	    Map<String, Club> mapClubs = new HashMap<>();
+	    Club entry;
+	    int count = 0;
+
+	    for (int i = 0; i < jsonArr.size(); i++) {
+
+		JSONObject jsonPlayersPage = (JSONObject) jsonArr.get(i);
+		JSONArray jsonPlayers = (JSONArray) jsonPlayersPage.get("content");
+
+		for (int j = 0; j < jsonPlayers.size(); j++) {
+		    count++;
+
+		    JSONObject player = (JSONObject) jsonPlayers.get(j);
+		    entry = new Club();
+
+		    try {
+
+			if (player.containsKey("currentTeam")) {
+			    JSONObject currentTeam = (JSONObject) player.get("currentTeam");
+			    JSONObject altIds = (JSONObject) currentTeam.get("altIds");
+			    entry.setId(altIds.get("opta").toString());
+			    entry.setName(currentTeam.get("name").toString());
+			    entry.setShortName(currentTeam.get("shortName").toString());
+
+			    JSONObject club = (JSONObject) currentTeam.get("club");
+			    entry.setAbbr(club.get("abbr").toString());
+
+			    mapClubs.put(entry.getId(), entry);
+			}
+
+		    } catch (Exception ex) {
+			ex.printStackTrace();
+			System.out.println(player);
+		    }
+		}
+
+	    }
+
+	    for (Map.Entry<String, Club> entryMap : mapClubs.entrySet()) {
+		ClubDB4O.INST.storeClub(entryMap.getValue());
+	    }
+	} catch (Exception ex) {
+	    ex.printStackTrace();
+	}
+    }
+
     public static void main(String[] args) {
 	Crawler c = new Crawler();
-	c.crawlPlayer();
+//	c.crawlPlayer();
+	c.crawlClub();
     }
 }
