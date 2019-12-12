@@ -17,7 +17,8 @@ public class Test {
 
     public static void main(String[] args) {
 	PlayerDB4O ada = new PlayerDB4O();
-	List<Player> listAllPlayers = ada.listAllPlayers();
+	List<Player> listAllPlayers = ada.searchPlayersByAdvancedQuery("", "Chelsea", "", 10, 25);
+//	List<Player> listAllPlayers = ada.listAllPlayers();
 	System.out.println(listAllPlayers);
     }
 }
