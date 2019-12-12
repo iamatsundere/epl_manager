@@ -47,7 +47,7 @@
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="416" max="32767" attributes="0"/>
+              <EmptySpace pref="496" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
@@ -70,7 +70,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jtxtname" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jtxtname" alignment="0" pref="246" max="32767" attributes="0"/>
                       <Component id="jtxtid" alignment="0" max="32767" attributes="0"/>
                       <Component id="jtxtposInfo" alignment="0" max="32767" attributes="0"/>
                       <Component id="jtxtpos" alignment="1" max="32767" attributes="0"/>

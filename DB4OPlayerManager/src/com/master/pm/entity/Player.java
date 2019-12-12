@@ -10,7 +10,7 @@ package com.master.pm.entity;
  *
  * @author phuctt
  */
-public class Player extends Profile {
+public class Player extends Footballer {
 
     private String pos;
     private String posInfo;
