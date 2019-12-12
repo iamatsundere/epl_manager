@@ -41,7 +41,7 @@ public class PlayerDB4O {
 	    db.store(entry);
 	    System.out.println("Stored " + entry);
 	} finally {
-	    //db.close();
+	    db.close();
 	}
     }
 
