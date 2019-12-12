@@ -65,7 +65,7 @@ public class ClubDB4O {
         }
     }
 
-    public List<Club> listClubsByQuery(Club query) {
+    public List<Club> searchClubsByQuery(Club query) {
         ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
         List<Club> listResult = new ArrayList<>();
         try {
