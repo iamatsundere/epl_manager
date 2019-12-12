@@ -65,7 +65,7 @@ public class ManagerDB4O {
         }
     }
 
-    public List<Manager> listManagersByQuery(Manager query) {
+    public List<Manager> searchManagersByQuery(Manager query) {
         ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
         List<Manager> listResult = new ArrayList<>();
         try {
