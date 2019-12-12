@@ -12,7 +12,7 @@ import com.google.gson.GsonBuilder;
  *
  * @author phuctt
  */
-public class Sportman extends Profile {
+public class Footballer extends Profile {
 
     private static final Gson GSON = new GsonBuilder().create();
 
@@ -22,10 +22,10 @@ public class Sportman extends Profile {
     private int dob;
     private String country;
 
-    public Sportman() {
+    public Footballer() {
     }
 
-    public Sportman(String firstName, String lastName, String club, String clubAbbr, int dob, String country, String countryCode) {
+    public Footballer(String firstName, String lastName, String club, String clubAbbr, int dob, String country, String countryCode) {
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.club = club;
