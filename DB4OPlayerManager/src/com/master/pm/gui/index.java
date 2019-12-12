@@ -757,21 +757,44 @@ public class index extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRefreshClubActionPerformed
 
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
-        Player player = new Player();
-        player.setName(jtxtSearch.getText());
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        TableRowSorter<DefaultTableModel> tb = new TableRowSorter<DefaultTableModel>(model);
-        jTable1.setRowSorter(tb);
-        tb.setRowFilter(RowFilter.regexFilter(player.getName()));
+//        Player player = new Player();
+//        player.setName(jtxtSearch.getText());
+//        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+//        TableRowSorter<DefaultTableModel> tb = new TableRowSorter<DefaultTableModel>(model);
+//        jTable1.setRowSorter(tb);
+//        tb.setRowFilter(RowFilter.regexFilter(player.getName()));
+        java.util.List<Player> listResult = new ArrayList<>();
+        Player player=new Player();
+        player.setPosInfo(jtxtSearch.getText());
+        show_Player_Search(player);
+
     }//GEN-LAST:event_jButtonSearchActionPerformed
 
     private void jButtonSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSearchMouseClicked
-        Player player = new Player();
+//        Player player = new Player();
+//        player.setName(jtxtSearch.getText());
+//        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+//        TableRowSorter<DefaultTableModel> tb = new TableRowSorter<DefaultTableModel>(model);
+//        jTable1.setRowSorter(tb);
+//        tb.setRowFilter(RowFilter.regexFilter(player.getName()));
+        
+        java.util.List<Player> listResult = new ArrayList<>();
+        Player player=new Player();
         player.setName(jtxtSearch.getText());
+        listResult = PlayerDB4O.INST.listPlayersByQuery(player);
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        TableRowSorter<DefaultTableModel> tb = new TableRowSorter<DefaultTableModel>(model);
-        jTable1.setRowSorter(tb);
-        tb.setRowFilter(RowFilter.regexFilter(player.getName()));
+        Object[] row = new Object[7];
+        for (int i = 0; i < listResult.size(); i++) {
+            row[0] = listResult.get(i).getId();
+            row[1] = listResult.get(i).getName();
+            row[2] = listResult.get(i).getCountry();
+            row[3] = listResult.get(i).getClub();
+            row[4] = listResult.get(i).getDob();
+            row[5] = listResult.get(i).getPos();
+            row[6] = listResult.get(i).getPosInfo();
+            model.addRow(row);
+        }
+        jTable1.setModel(model);
     }//GEN-LAST:event_jButtonSearchMouseClicked
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -889,6 +912,24 @@ public class index extends javax.swing.JFrame {
             model.addRow(row);
         }
         jTableClub.setModel(model);
+    }
+    
+    public void show_Player_Search(Player player) {
+        java.util.List<Player> listResult = new ArrayList<>();
+        listResult = PlayerDB4O.INST.listPlayersByQuery(player);
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        Object[] row = new Object[7];
+        for (int i = 0; i < listResult.size(); i++) {
+            row[0] = listResult.get(i).getId();
+            row[1] = listResult.get(i).getName();
+            row[2] = listResult.get(i).getCountry();
+            row[3] = listResult.get(i).getClub();
+            row[4] = listResult.get(i).getDob();
+            row[5] = listResult.get(i).getPos();
+            row[6] = listResult.get(i).getPosInfo();
+            model.addRow(row);
+        }
+        jTable1.setModel(model);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
