@@ -531,7 +531,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jtxtClubSearch" min="-2" pref="158" max="-2" attributes="0"/>
+                              <Component id="jtxtCountrySearch" min="-2" pref="158" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
@@ -576,7 +576,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jtxtClubSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtxtCountrySearch" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -604,11 +604,11 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="jtxtClubSearch">
+            <Component class="javax.swing.JTextField" name="jtxtCountrySearch">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel20">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Club"/>
+                <Property name="text" type="java.lang.String" value="Country"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel21">
@@ -646,12 +646,12 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable2">
+                <Component class="javax.swing.JTable" name="jTableSearch">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="4" rowCount="0">
                         <Column editable="true" title="Name" type="java.lang.Object"/>
-                        <Column editable="true" title="Club" type="java.lang.Object"/>
+                        <Column editable="true" title="Country" type="java.lang.Object"/>
                         <Column editable="true" title="Age" type="java.lang.Object"/>
                         <Column editable="true" title="Pos" type="java.lang.Object"/>
                       </Table>

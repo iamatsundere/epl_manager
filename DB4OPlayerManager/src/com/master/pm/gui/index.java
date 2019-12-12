@@ -79,7 +79,7 @@ public class index extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jtxtabbrClub = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        jtxtClubSearch = new javax.swing.JTextField();
+        jtxtCountrySearch = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jtxtNameSearch = new javax.swing.JTextField();
@@ -90,7 +90,7 @@ public class index extends javax.swing.JFrame {
         jtxttoAgeSearch = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTableSearch = new javax.swing.JTable();
         jButton_Search = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -377,7 +377,7 @@ public class index extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Club", jPanel3);
 
-        jLabel20.setText("Club");
+        jLabel20.setText("Country");
 
         jLabel21.setText("Name");
 
@@ -387,15 +387,15 @@ public class index extends javax.swing.JFrame {
 
         jLabel25.setText("-");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableSearch.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Name", "Club", "Age", "Pos"
+                "Name", "Country", "Age", "Pos"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jTableSearch);
 
         jButton_Search.setText("Search");
         jButton_Search.addActionListener(new java.awt.event.ActionListener() {
@@ -418,7 +418,7 @@ public class index extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel20)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jtxtClubSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jtxtCountrySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(57, 57, 57)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -454,7 +454,7 @@ public class index extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel20)
-                            .addComponent(jtxtClubSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jtxtCountrySearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel23)
@@ -811,14 +811,23 @@ public class index extends javax.swing.JFrame {
     private void jButton_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SearchActionPerformed
      
         java.util.List<Player> listResult = new ArrayList<>();
-        Player player =new Player();
-        player.setName(jtxtNameSearch.getText());
-        player.setClub(jtxtClubSearch.getText());
-        player.setPos(jtxtPosSearch.getText());
-        listResult = PlayerDB4O.INST.searchPlayersByAdvancedQuery(jtxtNameSearch.getText(), jtxtClubSearch.getText(), jtxtPosSearch.getText(),
-                Integer.parseInt(jtxtfromAgeSearch.getText()), Integer.parseInt(jtxttoAgeSearch.getText()));
+     //   int fromAge = Integer.parseInt(""+jtxtfromAgeSearch.getText())*1;
+       
         
+        listResult = PlayerDB4O.INST.searchPlayersByAdvancedQuery(jtxtNameSearch.getText(), jtxtCountrySearch.getText(), jtxtPosSearch.getText(),
+                 -1, -1);
         
+         DefaultTableModel model = (DefaultTableModel) jTableSearch.getModel();
+        Object[] row = new Object[4];
+        for (int i = 0; i < listResult.size(); i++) {
+            row[0] = listResult.get(i).getName();
+            row[1] = listResult.get(i).getCountry();
+            //row[2] = listResult.get(i).get;
+            row[3] = listResult.get(i).getPos();
+
+            model.addRow(row);
+        }
+        jTableManager.setModel(model);
     }//GEN-LAST:event_jButton_SearchActionPerformed
 
     /**
@@ -969,10 +978,10 @@ public class index extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTableClub;
     private javax.swing.JTable jTableManager;
-    private javax.swing.JTextField jtxtClubSearch;
+    private javax.swing.JTable jTableSearch;
+    private javax.swing.JTextField jtxtCountrySearch;
     private javax.swing.JTextField jtxtNameSearch;
     private javax.swing.JTextField jtxtPosSearch;
     private javax.swing.JTextField jtxtabbrClub;
