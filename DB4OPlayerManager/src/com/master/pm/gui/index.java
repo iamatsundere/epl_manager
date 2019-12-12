@@ -398,6 +398,11 @@ public class index extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         jButton_Search.setText("Search");
+        jButton_Search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_SearchActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -803,6 +808,19 @@ public class index extends javax.swing.JFrame {
         jtxtposInfo.setText(model.getValueAt(i, 6).toString());
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void jButton_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SearchActionPerformed
+     
+        java.util.List<Player> listResult = new ArrayList<>();
+        Player player =new Player();
+        player.setName(jtxtNameSearch.getText());
+        player.setClub(jtxtClubSearch.getText());
+        player.setPos(jtxtPosSearch.getText());
+        listResult = PlayerDB4O.INST.searchPlayersByAdvancedQuery(jtxtNameSearch.getText(), jtxtClubSearch.getText(), jtxtPosSearch.getText(),
+                Integer.parseInt(jtxtfromAgeSearch.getText()), Integer.parseInt(jtxttoAgeSearch.getText()));
+        
+        
+    }//GEN-LAST:event_jButton_SearchActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -888,23 +906,23 @@ public class index extends javax.swing.JFrame {
         jTableClub.setModel(model);
     }
     
-    public void show_Player_Search(Player player) {
-        java.util.List<Player> listResult = new ArrayList<>();
-        listResult = PlayerDB4O.INST.listPlayersByQuery(player);
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        Object[] row = new Object[7];
-        for (int i = 0; i < listResult.size(); i++) {
-            row[0] = listResult.get(i).getId();
-            row[1] = listResult.get(i).getName();
-            row[2] = listResult.get(i).getCountry();
-            row[3] = listResult.get(i).getClub();
-            row[4] = listResult.get(i).getDob();
-            row[5] = listResult.get(i).getPos();
-            row[6] = listResult.get(i).getPosInfo();
-            model.addRow(row);
-        }
-        jTable1.setModel(model);
-    }
+//    public void show_Player_Search(Player player) {
+//        java.util.List<Player> listResult = new ArrayList<>();
+//        listResult = PlayerDB4O.INST.searchPlayersByAdvancedQuery(player);
+//        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+//        Object[] row = new Object[7];
+//        for (int i = 0; i < listResult.size(); i++) {
+//            row[0] = listResult.get(i).getId();
+//            row[1] = listResult.get(i).getName();
+//            row[2] = listResult.get(i).getCountry();
+//            row[3] = listResult.get(i).getClub();
+//            row[4] = listResult.get(i).getDob();
+//            row[5] = listResult.get(i).getPos();
+//            row[6] = listResult.get(i).getPosInfo();
+//            model.addRow(row);
+//        }
+//        jTable1.setModel(model);
+//    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdd;
