@@ -21,17 +21,22 @@ public class PlayerDB4O {
 
     public static final PlayerDB4O INST = new PlayerDB4O();
     private static final String DB4OFILENAME = "data/players_db";
+    private static final ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
 
     public void base() {
-	ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
+	//ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
 	try {
 	} finally {
 	    //db.close();
 	}
     }
 
+    public void closeDB() {
+	db.close();
+    }
+
     public void storePlayer(Player entry) {
-	ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
+	//ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
 	try {
 	    db.store(entry);
 	    System.out.println("Stored " + entry);
@@ -41,7 +46,7 @@ public class PlayerDB4O {
     }
 
     public void updatePlayerById(Player entry) {
-	ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
+	//ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
 	try {
 	    Player player = new Player();
 	    player.setId(entry.getId());
@@ -63,7 +68,7 @@ public class PlayerDB4O {
     }
 
     public void deletePlayerByName(Player pilot) {
-	ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
+	//ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
 	try {
 	    Player player = new Player();
 	    player.setName(pilot.getName());
@@ -76,7 +81,7 @@ public class PlayerDB4O {
     }
 
     public void deletePlayerById(Player pilot) {
-	ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
+	//ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
 	try {
 	    Player player = new Player();
 	    player.setId(pilot.getId());
@@ -89,7 +94,7 @@ public class PlayerDB4O {
     }
 
     public List<Player> searchPlayersByQuery(Player query) {
-	ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
+	//ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
 	List<Player> listResult = new ArrayList<>();
 	try {
 	    ObjectSet<Player> queryByExample = db.queryByExample(query);
@@ -100,8 +105,8 @@ public class PlayerDB4O {
 	return listResult;
     }
 
-    public List<Player> searchPlayersByAdvancedQuery(String name, String club, String pos, int fromAge, int toAge) {
-	ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
+    public List<Player> searchPlayersByAdvancedQuery(String name, String country, String pos, int fromAge, int toAge) {
+	//ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
 	List<Player> listResult = new ArrayList<>();
 	try {
 	    long now = System.currentTimeMillis() / 1000;
@@ -111,22 +116,21 @@ public class PlayerDB4O {
 	    listResult = db.query(new Predicate<Player>() {
 		@Override
 		public boolean match(Player player) {
-		    return name != "" ? true : player.getName().contains(name)
-				    && club != "" ? true : player.getName().contains(club)
-						    && pos != "" ? true : player.getName().contains(pos)
-								    && fromAge != -1 ? true : player.getDob() >= from
-										    && toAge != -1 ? true : player.getDob() <= to;
-//		    return false;
+		    return (name == "" ? true : player.getName().contains(name))
+				    && (country == "" ? true : player.getCountry().contains(country))
+				    && (pos == "" ? true : player.getPos().contains(pos))
+				    && (fromAge == -1 ? true : player.getDob() >= from)
+				    && (toAge == -1 ? true : player.getDob() <= to);
 		}
 	    });
+	    return listResult;
 	} finally {
 	    //db.close();
 	}
-	return listResult;
     }
 
     public List<Player> listAllPlayers() {
-	ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
+	//ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
 	List<Player> listResult = new ArrayList<>();
 	try {
 	    ObjectSet<Player> queryByExample = db.query(Player.class);
