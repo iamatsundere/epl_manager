@@ -781,7 +781,7 @@ public class index extends javax.swing.JFrame {
         java.util.List<Player> listResult = new ArrayList<>();
         Player player=new Player();
         player.setName(jtxtSearch.getText());
-        listResult = PlayerDB4O.INST.listPlayersByQuery(player);
+        listResult = PlayerDB4O.INST.searchPlayersByQuery(player);
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Object[] row = new Object[7];
         for (int i = 0; i < listResult.size(); i++) {
@@ -916,7 +916,7 @@ public class index extends javax.swing.JFrame {
     
     public void show_Player_Search(Player player) {
         java.util.List<Player> listResult = new ArrayList<>();
-        listResult = PlayerDB4O.INST.listPlayersByQuery(player);
+        listResult = PlayerDB4O.INST.searchPlayersByQuery(player);
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Object[] row = new Object[7];
         for (int i = 0; i < listResult.size(); i++) {
