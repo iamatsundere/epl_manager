@@ -48,7 +48,7 @@ public class Player extends Footballer {
     }
 
     public Player(String pos, String posInfo, int shirtNum, int yellowCards, int redCards, int minutes, int goalsScored, int assists, int ownGoals, int penaltiesMissed, int saves, int cleanSheets, int goalsConceded, int penaltiesSaved, String _id, String name, String firstName, String lastName, String club, String clubAbbr, int dob, String country, String countryCode) {
-	super(_id, name, firstName, lastName, club, clubAbbr, dob, country, countryCode);
+	super(firstName, lastName, club, clubAbbr, dob, country, countryCode);
 	this.pos = pos;
 	this.posInfo = posInfo;
 	this.shirtNum = shirtNum;

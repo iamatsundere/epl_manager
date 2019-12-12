@@ -10,6 +10,7 @@ package com.master.pm.entity;
  * @author phuctt
  */
 public class Manager extends Footballer {
+
     private boolean active;
 
     public Manager() {
@@ -20,7 +21,7 @@ public class Manager extends Footballer {
     }
 
     public Manager(boolean active, String _id, String name, String firstName, String lastName, String club, String clubAbbr, int dob, String country, String countryCode) {
-	super(_id, name, firstName, lastName, club, clubAbbr, dob, country, countryCode);
+	super(firstName, lastName, club, clubAbbr, dob, country, countryCode);
 	this.active = active;
     }
 
