@@ -11,13 +11,13 @@ import com.master.pm.dbal.PlayerDB4O;
 import com.master.pm.entity.Club;
 import com.master.pm.entity.Manager;
 import com.master.pm.entity.Player;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
-import javax.swing.RowFilter;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -29,10 +29,10 @@ public class index extends javax.swing.JFrame {
      * Creates new form Player
      */
     public index() {
-        initComponents();
-        show_Player();
-        show_Manager();
-        show_Club();
+	initComponents();
+	show_Player();
+	show_Manager();
+	show_Club();
     }
 
     /**
@@ -635,291 +635,296 @@ public class index extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddManagerActionPerformed
-        try {
-            if (!jtxtfirstNameManager.getText().isEmpty() || !jtxtlastNameManager.getText().isEmpty() || !jtxtclubManager.getText().isEmpty()
-                    || !jtxtdobManager.getText().isEmpty() || !jtxtcountryManager.getText().isEmpty() || !jtxtactiveManager.getText().isEmpty()) {
-                Manager manager = new Manager();
-                manager.setFirstName(jtxtfirstNameManager.getText());
-                manager.setLastName(jtxtlastNameManager.getText());
-                manager.setClub(jtxtclubManager.getText());
-                manager.setDob(Integer.parseInt(jtxtdobManager.getText()));
-                manager.setCountry(jtxtcountryManager.getText());
-                manager.setActive(Boolean.parseBoolean(jtxtactiveManager.getText()));
-                ManagerDB4O.INST.storeManager(manager);
-                DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
-                model.setRowCount(0);
-                JOptionPane.showMessageDialog(null, "Insert sucessful!");
-            }
+	try {
+	    if (!jtxtfirstNameManager.getText().isEmpty() || !jtxtlastNameManager.getText().isEmpty() || !jtxtclubManager.getText().isEmpty()
+			    || !jtxtdobManager.getText().isEmpty() || !jtxtcountryManager.getText().isEmpty() || !jtxtactiveManager.getText().isEmpty()) {
+		Manager manager = new Manager();
+		manager.setFirstName(jtxtfirstNameManager.getText());
+		manager.setLastName(jtxtlastNameManager.getText());
+		manager.setClub(jtxtclubManager.getText());
+		manager.setDob(Integer.parseInt(jtxtdobManager.getText()));
+		manager.setCountry(jtxtcountryManager.getText());
+		manager.setActive(Boolean.parseBoolean(jtxtactiveManager.getText()));
+		ManagerDB4O.INST.storeManager(manager);
+		DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
+		model.setRowCount(0);
+		JOptionPane.showMessageDialog(null, "Insert sucessful!");
+	    }
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+	} catch (Exception e) {
+	    JOptionPane.showMessageDialog(null, e);
+	}
     }//GEN-LAST:event_jButtonAddManagerActionPerformed
 
     private void jButtonEditManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditManagerActionPerformed
-        try {
-            if (!jtxtfirstNameManager.getText().isEmpty() || !jtxtlastNameManager.getText().isEmpty() || !jtxtclubManager.getText().isEmpty()
-                    || !jtxtdobManager.getText().isEmpty() || !jtxtcountryManager.getText().isEmpty() || !jtxtactiveManager.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Update sucessful!");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+	try {
+	    if (!jtxtfirstNameManager.getText().isEmpty() || !jtxtlastNameManager.getText().isEmpty() || !jtxtclubManager.getText().isEmpty()
+			    || !jtxtdobManager.getText().isEmpty() || !jtxtcountryManager.getText().isEmpty() || !jtxtactiveManager.getText().isEmpty()) {
+		JOptionPane.showMessageDialog(null, "Update sucessful!");
+	    }
+	} catch (Exception e) {
+	    JOptionPane.showMessageDialog(null, e);
+	}
     }//GEN-LAST:event_jButtonEditManagerActionPerformed
 
     private void jButtonDeleteManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteManagerActionPerformed
-        try {
-            if (!jtxtfirstNameManager.getText().isEmpty()) {
-                Manager manager = new Manager();
-                manager.setFirstName(jtxtfirstNameManager.getText());
-                ManagerDB4O.INST.deleteManagerById(manager);
-                DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
-                model.setRowCount(0);
-                show_Manager();
-                JOptionPane.showMessageDialog(null, "Deleted sucessful!");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+	try {
+	    if (!jtxtfirstNameManager.getText().isEmpty()) {
+		Manager manager = new Manager();
+		manager.setFirstName(jtxtfirstNameManager.getText());
+		ManagerDB4O.INST.deleteManagerById(manager);
+		DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
+		model.setRowCount(0);
+		show_Manager();
+		JOptionPane.showMessageDialog(null, "Deleted sucessful!");
+	    }
+	} catch (Exception e) {
+	    JOptionPane.showMessageDialog(null, e);
+	}
     }//GEN-LAST:event_jButtonDeleteManagerActionPerformed
 
     private void jButtonRefreshManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshManagerActionPerformed
-        jtxtfirstNameManager.setText("");
-        jtxtlastNameManager.setText("");
-        jtxtcountryManager.setText("");
-        jtxtclubManager.setText("");
-        jtxtdobManager.setText("");
-        jtxtcountryManager.setText("");
-        jtxtactiveManager.setText("");
+	jtxtfirstNameManager.setText("");
+	jtxtlastNameManager.setText("");
+	jtxtcountryManager.setText("");
+	jtxtclubManager.setText("");
+	jtxtdobManager.setText("");
+	jtxtcountryManager.setText("");
+	jtxtactiveManager.setText("");
     }//GEN-LAST:event_jButtonRefreshManagerActionPerformed
 
     private void jButtonAddClubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddClubActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_jButtonAddClubActionPerformed
 
     private void jButtonEditClubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditClubActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_jButtonEditClubActionPerformed
 
     private void jButtonDeleteClubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteClubActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_jButtonDeleteClubActionPerformed
 
     private void jButtonRefreshClubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshClubActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_jButtonRefreshClubActionPerformed
 
     private void jTableManagerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableManagerMouseClicked
-        int i = jTableManager.getSelectedRow();
-        TableModel model = jTableManager.getModel();
-        jtxtfirstNameManager.setText(model.getValueAt(i, 0).toString());
-        jtxtlastNameManager.setText(model.getValueAt(i, 1).toString());
-        jtxtclubManager.setText(model.getValueAt(i, 2).toString());
-        jtxtdobManager.setText(model.getValueAt(i, 3).toString());
-        jtxtcountryManager.setText(model.getValueAt(i, 4).toString());
-        jtxtactiveManager.setText(model.getValueAt(i, 5).toString());
+	int i = jTableManager.getSelectedRow();
+	TableModel model = jTableManager.getModel();
+	jtxtfirstNameManager.setText(model.getValueAt(i, 0).toString());
+	jtxtlastNameManager.setText(model.getValueAt(i, 1).toString());
+	jtxtclubManager.setText(model.getValueAt(i, 2).toString());
+	jtxtdobManager.setText(model.getValueAt(i, 3).toString());
+	jtxtcountryManager.setText(model.getValueAt(i, 4).toString());
+	jtxtactiveManager.setText(model.getValueAt(i, 5).toString());
     }//GEN-LAST:event_jTableManagerMouseClicked
 
     private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
-        jtxtid.setText("");
-        jtxtname.setText("");
-        jtxtcountry.setText("");
-        jtxtclub.setText("");
-        jtxtdob.setText("");
-        jtxtpos.setText("");
-        jtxtposInfo.setText("");
+	jtxtid.setText("");
+	jtxtname.setText("");
+	jtxtcountry.setText("");
+	jtxtclub.setText("");
+	jtxtdob.setText("");
+	jtxtpos.setText("");
+	jtxtposInfo.setText("");
     }//GEN-LAST:event_jButtonRefreshActionPerformed
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
-        try {
-            if (!jtxtid.getText().isEmpty()) {
-                Player player = new Player();
-                player.setId(jtxtid.getText());
-                PlayerDB4O.INST.deletePlayerById(player);
+	try {
+	    if (!jtxtid.getText().isEmpty()) {
+		Player player = new Player();
+		player.setId(jtxtid.getText());
+		PlayerDB4O.INST.deletePlayerById(player);
 
-                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-                model.setRowCount(0);
-                show_Player();
-                JOptionPane.showMessageDialog(null, "Deleted sucessful!");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+		DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+		model.setRowCount(0);
+		show_Player();
+		JOptionPane.showMessageDialog(null, "Deleted sucessful!");
+	    }
+	} catch (Exception e) {
+	    JOptionPane.showMessageDialog(null, e);
+	}
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
-        try {
-            if (!jtxtdob.getText().isEmpty() || !jtxtpos.getText().isEmpty() || !jtxtposInfo.getText().isEmpty()
-                    || !jtxtname.getText().isEmpty() || !jtxtclub.getText().isEmpty() || !jtxtid.getText().isEmpty()) {
-                java.util.List<Player> listResult = new ArrayList<>();
-                Player player = new Player();
-                player.setId(jtxtid.getText());
-                player.setName(jtxtname.getText());
-                player.setCountry(jtxtcountry.getText());
-                player.setDob(Integer.parseInt(jtxtdob.getText()));
-                player.setClub(jtxtclub.getText());
-                player.setPos(jtxtpos.getText());
-                player.setPosInfo(jtxtposInfo.getText());
-                PlayerDB4O.INST.updatePlayerById(player);
+	try {
+	    if (!jtxtdob.getText().isEmpty() || !jtxtpos.getText().isEmpty() || !jtxtposInfo.getText().isEmpty()
+			    || !jtxtname.getText().isEmpty() || !jtxtclub.getText().isEmpty() || !jtxtid.getText().isEmpty()) {
+		java.util.List<Player> listResult = new ArrayList<>();
+		Player player = new Player();
+		player.setId(jtxtid.getText());
+		player.setName(jtxtname.getText());
+		player.setCountry(jtxtcountry.getText());
+		player.setDob(Integer.parseInt(jtxtdob.getText()));
+		player.setClub(jtxtclub.getText());
+		player.setPos(jtxtpos.getText());
+		player.setPosInfo(jtxtposInfo.getText());
+		PlayerDB4O.INST.updatePlayerById(player);
 
-                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-                model.setRowCount(0);
-                show_Player();
+		DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+		model.setRowCount(0);
+		show_Player();
 
-                JOptionPane.showMessageDialog(null, "Update sucessful!");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+		JOptionPane.showMessageDialog(null, "Update sucessful!");
+	    }
+	} catch (Exception e) {
+	    JOptionPane.showMessageDialog(null, e);
+	}
     }//GEN-LAST:event_jButtonEditActionPerformed
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        try {
-            if (!jtxtdob.getText().isEmpty() || !jtxtpos.getText().isEmpty() || !jtxtposInfo.getText().isEmpty()
-                    || !jtxtname.getText().isEmpty() || !jtxtclub.getText().isEmpty() || !jtxtid.getText().isEmpty()) {
-                java.util.List<Player> listResult = new ArrayList<>();
-                Player player = new Player();
-                player.setId(jtxtid.getText());
-                player.setName(jtxtname.getText());
-                player.setCountry(jtxtcountry.getText());
-                player.setDob(Integer.parseInt(jtxtdob.getText()));
-                player.setClub(jtxtclub.getText());
-                player.setPos(jtxtpos.getText());
-                player.setPosInfo(jtxtposInfo.getText());
-                PlayerDB4O.INST.storePlayer(player);
-                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-                model.setRowCount(0);
-                show_Player();
-                JOptionPane.showMessageDialog(null, "Insert sucessful!");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+	try {
+	    if (!jtxtdob.getText().isEmpty() || !jtxtpos.getText().isEmpty() || !jtxtposInfo.getText().isEmpty()
+			    || !jtxtname.getText().isEmpty() || !jtxtclub.getText().isEmpty() || !jtxtid.getText().isEmpty()) {
+		java.util.List<Player> listResult = new ArrayList<>();
+		Player player = new Player();
+		player.setId(jtxtid.getText());
+		player.setName(jtxtname.getText());
+		player.setCountry(jtxtcountry.getText());
+		player.setDob(Integer.parseInt(jtxtdob.getText()));
+		player.setClub(jtxtclub.getText());
+		player.setPos(jtxtpos.getText());
+		player.setPosInfo(jtxtposInfo.getText());
+		PlayerDB4O.INST.storePlayer(player);
+		DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+		model.setRowCount(0);
+		show_Player();
+		JOptionPane.showMessageDialog(null, "Insert sucessful!");
+	    }
+	} catch (Exception e) {
+	    JOptionPane.showMessageDialog(null, e);
+	}
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        int i = jTable1.getSelectedRow();
-        TableModel model = jTable1.getModel();
-        jtxtid.setText(model.getValueAt(i, 0).toString());
-        jtxtname.setText(model.getValueAt(i, 1).toString());
-        jtxtcountry.setText(model.getValueAt(i, 2).toString());
-        jtxtclub.setText(model.getValueAt(i, 3).toString());
-        jtxtdob.setText(model.getValueAt(i, 4).toString());
-        jtxtpos.setText(model.getValueAt(i, 5).toString());
-        jtxtposInfo.setText(model.getValueAt(i, 6).toString());
+	int i = jTable1.getSelectedRow();
+	TableModel model = jTable1.getModel();
+	jtxtid.setText(model.getValueAt(i, 0).toString());
+	jtxtname.setText(model.getValueAt(i, 1).toString());
+	jtxtcountry.setText(model.getValueAt(i, 2).toString());
+	jtxtclub.setText(model.getValueAt(i, 3).toString());
+	jtxtdob.setText(model.getValueAt(i, 4).toString());
+	jtxtpos.setText(model.getValueAt(i, 5).toString());
+	jtxtposInfo.setText(model.getValueAt(i, 6).toString());
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SearchActionPerformed
+	java.util.List<Player> listResult = new ArrayList<>();
+	int fromAge = -1;
+	int toAge = -1;
+	if (!jtxtfromAgeSearch.getText().isEmpty()) {
+	    fromAge = Integer.parseInt(jtxtfromAgeSearch.getText());
+	}
 
-        java.util.List<Player> listResult = new ArrayList<>();
-        int fromAge = -1;
-        int toAge = -1;
-        if (!jtxtfromAgeSearch.getText().isEmpty()) {
-            fromAge = Integer.parseInt(jtxtfromAgeSearch.getText());
-        }
+	if (!jtxttoAgeSearch.getText().isEmpty()) {
+	    toAge = Integer.parseInt(jtxttoAgeSearch.getText());
+	}
 
-        if (!jtxttoAgeSearch.getText().isEmpty()) {
-            toAge = Integer.parseInt(jtxttoAgeSearch.getText());
-        }
+	listResult = PlayerDB4O.INST.searchPlayersByAdvancedQuery(jtxtNameSearch.getText(), jtxtCountrySearch.getText(), jtxtPosSearch.getText(),
+			fromAge, toAge);
 
-        listResult = PlayerDB4O.INST.searchPlayersByAdvancedQuery(jtxtNameSearch.getText(), jtxtCountrySearch.getText(), jtxtPosSearch.getText(),
-                fromAge, toAge);
+	System.out.println(listResult);
+	DateFormat df = new SimpleDateFormat("dd/MM/YYYY");
 
-        DefaultTableModel model = (DefaultTableModel) jTableSearch.getModel();
-        Object[] row = new Object[4];
-        for (int i = 0; i < listResult.size(); i++) {
-            row[0] = listResult.get(i).getName();
-            row[1] = listResult.get(i).getCountry();
-            row[2] = listResult.get(i).getDob();
-            row[3] = listResult.get(i).getPos();
-            model.addRow(row);
-        }
-        jTableManager.setModel(model);
+	DefaultTableModel model = (DefaultTableModel) jTableSearch.getModel();
+	model.setRowCount(0);
+	Object[] row = new Object[4];
+
+	for (int i = 0; i < listResult.size(); i++) {
+	    row[0] = listResult.get(i).getName();
+	    row[1] = listResult.get(i).getCountry();
+
+	    row[2] = df.format(new Date((long) (listResult.get(i).getDob()) * 1000L));
+	    row[3] = listResult.get(i).getPos();
+	    model.addRow(row);
+	}
+	jTableManager.setModel(model);
     }//GEN-LAST:event_jButton_SearchActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+	/* Set the Nimbus look and feel */
+	//<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+	/* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+	 */
+	try {
+	    for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+		if ("Nimbus".equals(info.getName())) {
+		    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+		    break;
+		}
+	    }
+	} catch (ClassNotFoundException ex) {
+	    java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	} catch (InstantiationException ex) {
+	    java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	} catch (IllegalAccessException ex) {
+	    java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+	    java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	}
+	//</editor-fold>
+	//</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new index().setVisible(true);
-            }
-        });
+	/* Create and display the form */
+	java.awt.EventQueue.invokeLater(new Runnable() {
+	    public void run() {
+		new index().setVisible(true);
+	    }
+	});
     }
 
     public void show_Player() {
-        java.util.List<Player> listResult = new ArrayList<>();
-        listResult = PlayerDB4O.INST.listAllPlayers();
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        Object[] row = new Object[7];
-        for (int i = 0; i < listResult.size(); i++) {
-            row[0] = listResult.get(i).getId();
-            row[1] = listResult.get(i).getName();
-            row[2] = listResult.get(i).getCountry();
-            row[3] = listResult.get(i).getClub();
-            row[4] = listResult.get(i).getDob();
-            row[5] = listResult.get(i).getPos();
-            row[6] = listResult.get(i).getPosInfo();
-            model.addRow(row);
-        }
-        jTable1.setModel(model);
+	java.util.List<Player> listResult = new ArrayList<>();
+	listResult = PlayerDB4O.INST.listAllPlayers();
+	DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+	Object[] row = new Object[7];
+	for (int i = 0; i < listResult.size(); i++) {
+	    row[0] = listResult.get(i).getId();
+	    row[1] = listResult.get(i).getName();
+	    row[2] = listResult.get(i).getCountry();
+	    row[3] = listResult.get(i).getClub();
+	    row[4] = listResult.get(i).getDob();
+	    row[5] = listResult.get(i).getPos();
+	    row[6] = listResult.get(i).getPosInfo();
+	    model.addRow(row);
+	}
+	jTable1.setModel(model);
     }
 
     public void show_Manager() {
-        java.util.List<Manager> listResult = new ArrayList<>();
-        listResult = ManagerDB4O.INST.listAllManagers();
-        DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
-        Object[] row = new Object[6];
-        for (int i = 0; i < listResult.size(); i++) {
-            row[0] = listResult.get(i).getFirstName();
-            row[1] = listResult.get(i).getLastName();
-            row[2] = listResult.get(i).getClub();
-            row[3] = listResult.get(i).getDob();
-            row[4] = listResult.get(i).getCountry();
-            row[5] = listResult.get(i).isActive();
-            model.addRow(row);
-        }
-        jTableManager.setModel(model);
+	java.util.List<Manager> listResult = new ArrayList<>();
+	listResult = ManagerDB4O.INST.listAllManagers();
+	DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
+	Object[] row = new Object[6];
+	for (int i = 0; i < listResult.size(); i++) {
+	    row[0] = listResult.get(i).getFirstName();
+	    row[1] = listResult.get(i).getLastName();
+	    row[2] = listResult.get(i).getClub();
+	    row[3] = listResult.get(i).getDob();
+	    row[4] = listResult.get(i).getCountry();
+	    row[5] = listResult.get(i).isActive();
+	    model.addRow(row);
+	}
+	jTableManager.setModel(model);
     }
 
     public void show_Club() {
-        java.util.List<Club> listResult = new ArrayList<>();
-        listResult = ClubDB4O.INST.listAllClubs();
-        DefaultTableModel model = (DefaultTableModel) jTableClub.getModel();
-        Object[] row = new Object[3];
-        for (int i = 0; i < listResult.size(); i++) {
-            row[0] = listResult.get(i).getId();
-            row[1] = listResult.get(i).getShortName();
-            row[2] = listResult.get(i).getAbbr();
-            model.addRow(row);
-        }
-        jTableClub.setModel(model);
+	java.util.List<Club> listResult = new ArrayList<>();
+	listResult = ClubDB4O.INST.listAllClubs();
+	DefaultTableModel model = (DefaultTableModel) jTableClub.getModel();
+	Object[] row = new Object[3];
+	for (int i = 0; i < listResult.size(); i++) {
+	    row[0] = listResult.get(i).getId();
+	    row[1] = listResult.get(i).getShortName();
+	    row[2] = listResult.get(i).getAbbr();
+	    model.addRow(row);
+	}
+	jTableClub.setModel(model);
     }
 
 //    public void show_Player_Search(Player player) {
