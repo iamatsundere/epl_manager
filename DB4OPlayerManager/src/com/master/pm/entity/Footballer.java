@@ -16,8 +16,6 @@ public class Footballer extends Profile {
 
     private static final Gson GSON = new GsonBuilder().create();
 
-    private String _id;
-    private String name;
     private String firstName;
     private String lastName;
     private String club;
@@ -27,30 +25,12 @@ public class Footballer extends Profile {
     public Footballer() {
     }
 
-    public Footballer(String _id, String name, String firstName, String lastName, String club, String clubAbbr, int dob, String country, String countryCode) {
-	this._id = _id;
-	this.name = name;
+    public Footballer(String firstName, String lastName, String club, String clubAbbr, int dob, String country, String countryCode) {
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.club = club;
 	this.dob = dob;
 	this.country = country;
-    }
-
-    public String getId() {
-	return _id;
-    }
-
-    public void setId(String _id) {
-	this._id = _id;
-    }
-
-    public String getName() {
-	return name;
-    }
-
-    public void setName(String name) {
-	this.name = name;
     }
 
     public String getFirstName() {

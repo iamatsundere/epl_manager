@@ -6,7 +6,9 @@
 package com.master.pm.common;
 
 import com.master.pm.dbal.ClubDB4O;
+import com.master.pm.dbal.ManagerDB4O;
 import com.master.pm.entity.Club;
+import com.master.pm.entity.Manager;
 import com.master.pm.entity.Player;
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -95,9 +97,7 @@ public class Crawler {
 			System.out.println(player);
 		    }
 		}
-
 	    }
-
 	    System.out.println(count);
 	} catch (Exception ex) {
 	    ex.printStackTrace();
@@ -115,18 +115,13 @@ public class Crawler {
 	    int count = 0;
 
 	    for (int i = 0; i < jsonArr.size(); i++) {
-
 		JSONObject jsonPlayersPage = (JSONObject) jsonArr.get(i);
 		JSONArray jsonPlayers = (JSONArray) jsonPlayersPage.get("content");
-
 		for (int j = 0; j < jsonPlayers.size(); j++) {
 		    count++;
-
 		    JSONObject player = (JSONObject) jsonPlayers.get(j);
 		    entry = new Club();
-
 		    try {
-
 			if (player.containsKey("currentTeam")) {
 			    JSONObject currentTeam = (JSONObject) player.get("currentTeam");
 			    JSONObject altIds = (JSONObject) currentTeam.get("altIds");
@@ -139,17 +134,68 @@ public class Crawler {
 
 			    mapClubs.put(entry.getId(), entry);
 			}
-
 		    } catch (Exception ex) {
 			ex.printStackTrace();
 			System.out.println(player);
 		    }
 		}
-
 	    }
-
 	    for (Map.Entry<String, Club> entryMap : mapClubs.entrySet()) {
 		ClubDB4O.INST.storeClub(entryMap.getValue());
+	    }
+	} catch (Exception ex) {
+	    ex.printStackTrace();
+	}
+    }
+
+    public void crawlManager() {
+	try {
+	    String jsonString = Utils.Instance.readAllBytesJava("resources/managers.json");
+
+	    JSONParser parser = new JSONParser();
+	    JSONObject json = (JSONObject) parser.parse(jsonString);
+	    JSONArray jsonArr = (JSONArray) json.get("content");
+	    Manager entry;
+	    int count = 0;
+
+	    for (int j = 0; j < jsonArr.size(); j++) {
+		count++;
+		JSONObject manager = (JSONObject) jsonArr.get(j);
+		entry = new Manager();
+		try {
+		    JSONObject altIds = (JSONObject) manager.get("altIds");
+		    entry.setId(altIds.get("opta").toString());
+
+		    entry.setActive((boolean) manager.get("active"));
+		    if (manager.containsKey("currentTeam")) {
+			JSONObject currentTeam = (JSONObject) manager.get("currentTeam");
+			JSONObject altIdsClub = (JSONObject) currentTeam.get("altIds");
+			entry.setClub(altIdsClub.get("opta").toString());
+		    }
+
+		    JSONObject birth = (JSONObject) manager.get("birth");
+		    try {
+			JSONObject date = (JSONObject) birth.get("date");
+			String dob = date.get("millis").toString();
+			entry.setDob(new BigDecimal(dob).intValue());
+		    } catch (Exception ex) {
+			entry.setDob(0);
+		    }
+
+		    JSONObject name = (JSONObject) manager.get("name");
+		    entry.setFirstName(name.get("first").toString());
+		    entry.setLastName(name.get("last").toString());
+		    entry.setName(name.get("display").toString());
+
+		    JSONObject country = (JSONObject) birth.get("country");
+		    entry.setCountry(country.containsKey("country") ? country.get("country").toString() : "");
+		} catch (Exception ex) {
+		    ex.printStackTrace();
+		    System.out.println(manager);
+		}
+
+		System.out.println(manager);
+		ManagerDB4O.INST.storeManager(entry);
 	    }
 	} catch (Exception ex) {
 	    ex.printStackTrace();
@@ -159,6 +205,7 @@ public class Crawler {
     public static void main(String[] args) {
 	Crawler c = new Crawler();
 //	c.crawlPlayer();
-	c.crawlClub();
+//	c.crawlClub();
+	c.crawlManager();
     }
 }
