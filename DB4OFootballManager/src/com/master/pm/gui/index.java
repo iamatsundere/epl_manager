@@ -761,9 +761,9 @@ public class index extends javax.swing.JFrame {
 		manager.setId(jtxtManagerId.getText());
 		manager.setLastName(jtxtManagerLastName.getText());
 		manager.setName(jtxtManagerName.getText());
-		
+
 		ManagerDB4O.INST.updateManagerById(manager);
-		
+
 		JOptionPane.showMessageDialog(null, "Update sucessful!");
 	    }
 	} catch (Exception e) {
@@ -774,11 +774,8 @@ public class index extends javax.swing.JFrame {
     private void jButtonDeleteManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteManagerActionPerformed
 	try {
 	    if (!jtxtManagerId.getText().isEmpty()) {
-		Manager manager = new Manager();
-		manager.setFirstName(jtxtManagerId.getText());
+		Manager manager = managers.get(indexManager);
 		ManagerDB4O.INST.deleteManagerById(manager);
-		DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
-		model.setRowCount(0);
 		showManager();
 		JOptionPane.showMessageDialog(null, "Deleted sucessful!");
 	    }
