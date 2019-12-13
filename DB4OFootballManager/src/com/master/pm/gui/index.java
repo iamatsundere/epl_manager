@@ -15,6 +15,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -24,6 +25,9 @@ import javax.swing.table.TableModel;
  * @author Win10 Pro
  */
 public class index extends javax.swing.JFrame {
+
+    private List<Manager> managers;
+    private int indexManager;
 
     /**
      * Creates new form Player
@@ -49,12 +53,12 @@ public class index extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableManager = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
-        jtxtcountryManager = new javax.swing.JTextField();
-        jtxtactiveManager = new javax.swing.JTextField();
-        jtxtIdManager = new javax.swing.JTextField();
-        jtxtlastNameManager = new javax.swing.JTextField();
-        jtxtclubManager = new javax.swing.JTextField();
-        jtxtdobManager = new javax.swing.JTextField();
+        jtxtManagerCountry = new javax.swing.JTextField();
+        jtxtManagerActive = new javax.swing.JTextField();
+        jtxtManagerId = new javax.swing.JTextField();
+        jtxtManagerLastName = new javax.swing.JTextField();
+        jtxtManagerClub = new javax.swing.JTextField();
+        jtxtManagerDob = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -62,14 +66,14 @@ public class index extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButtonAddManager = new javax.swing.JButton();
-        jButtonEditManager = new javax.swing.JButton();
+        jButtonUpdateManager = new javax.swing.JButton();
         jButtonDeleteManager = new javax.swing.JButton();
         jButtonRefreshManager = new javax.swing.JButton();
-        jButtonEditManager1 = new javax.swing.JButton();
+        jButtonClearManager = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jtxtNameManager = new javax.swing.JTextField();
-        jtxtfirstNameManager = new javax.swing.JTextField();
+        jtxtManagerName = new javax.swing.JTextField();
+        jtxtManagerFirstName = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -161,10 +165,10 @@ public class index extends javax.swing.JFrame {
             }
         });
 
-        jButtonEditManager.setText("Update");
-        jButtonEditManager.addActionListener(new java.awt.event.ActionListener() {
+        jButtonUpdateManager.setText("Update");
+        jButtonUpdateManager.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEditManagerActionPerformed(evt);
+                jButtonUpdateManagerActionPerformed(evt);
             }
         });
 
@@ -182,16 +186,16 @@ public class index extends javax.swing.JFrame {
             }
         });
 
-        jButtonEditManager1.setText("Clear");
-        jButtonEditManager1.setName("jtxtClearManager"); // NOI18N
-        jButtonEditManager1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonClearManager.setText("Clear");
+        jButtonClearManager.setName("jtxtClearManager"); // NOI18N
+        jButtonClearManager.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonEditManager1MouseClicked(evt);
+                jButtonClearManagerMouseClicked(evt);
             }
         });
-        jButtonEditManager1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonClearManager.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEditManager1ActionPerformed(evt);
+                jButtonClearManagerActionPerformed(evt);
             }
         });
 
@@ -220,22 +224,22 @@ public class index extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addGap(108, 108, 108)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtxtactiveManager, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxtlastNameManager, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtManagerActive, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtManagerLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jtxtIdManager, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                                .addComponent(jtxtNameManager)
-                                .addComponent(jtxtfirstNameManager))
-                            .addComponent(jtxtclubManager, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxtdobManager, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxtcountryManager, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jtxtManagerId, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                                .addComponent(jtxtManagerName)
+                                .addComponent(jtxtManagerFirstName))
+                            .addComponent(jtxtManagerClub, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtManagerDob, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxtManagerCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jButtonAddManager, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonEditManager1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonClearManager, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonEditManager, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonUpdateManager, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonDeleteManager, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -243,9 +247,9 @@ public class index extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jtxtIdManager, jtxtactiveManager, jtxtclubManager, jtxtcountryManager, jtxtdobManager, jtxtlastNameManager});
+        jPanel6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jtxtManagerActive, jtxtManagerClub, jtxtManagerCountry, jtxtManagerDob, jtxtManagerId, jtxtManagerLastName});
 
-        jPanel6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonAddManager, jButtonDeleteManager, jButtonEditManager, jButtonEditManager1, jButtonRefreshManager});
+        jPanel6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonAddManager, jButtonClearManager, jButtonDeleteManager, jButtonRefreshManager, jButtonUpdateManager});
 
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,46 +257,46 @@ public class index extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jtxtIdManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtxtManagerId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxtNameManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtManagerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxtfirstNameManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtManagerFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxtlastNameManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtManagerLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxtclubManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtManagerClub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxtdobManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtManagerDob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxtcountryManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtManagerCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxtactiveManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtManagerActive, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAddManager)
-                    .addComponent(jButtonEditManager1)
-                    .addComponent(jButtonEditManager)
+                    .addComponent(jButtonClearManager)
+                    .addComponent(jButtonUpdateManager)
                     .addComponent(jButtonDeleteManager)
                     .addComponent(jButtonRefreshManager))
                 .addGap(424, 424, 424))
         );
 
-        jPanel6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonAddManager, jButtonDeleteManager, jButtonEditManager, jButtonRefreshManager});
+        jPanel6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonAddManager, jButtonDeleteManager, jButtonRefreshManager, jButtonUpdateManager});
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -725,15 +729,15 @@ public class index extends javax.swing.JFrame {
 
     private void jButtonAddManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddManagerActionPerformed
 	try {
-	    if (!jtxtIdManager.getText().isEmpty() || !jtxtlastNameManager.getText().isEmpty() || !jtxtclubManager.getText().isEmpty()
-			    || !jtxtdobManager.getText().isEmpty() || !jtxtcountryManager.getText().isEmpty() || !jtxtactiveManager.getText().isEmpty()) {
+	    if (!jtxtManagerId.getText().isEmpty() || !jtxtManagerLastName.getText().isEmpty() || !jtxtManagerClub.getText().isEmpty()
+			    || !jtxtManagerDob.getText().isEmpty() || !jtxtManagerCountry.getText().isEmpty() || !jtxtManagerActive.getText().isEmpty()) {
 		Manager manager = new Manager();
-		manager.setFirstName(jtxtIdManager.getText());
-		manager.setLastName(jtxtlastNameManager.getText());
-		manager.setClub(jtxtclubManager.getText());
-		manager.setDob(Integer.parseInt(jtxtdobManager.getText()));
-		manager.setCountry(jtxtcountryManager.getText());
-		manager.setActive(Boolean.parseBoolean(jtxtactiveManager.getText()));
+		manager.setFirstName(jtxtManagerId.getText());
+		manager.setLastName(jtxtManagerLastName.getText());
+		manager.setClub(jtxtManagerClub.getText());
+		manager.setDob(Integer.parseInt(jtxtManagerDob.getText()));
+		manager.setCountry(jtxtManagerCountry.getText());
+		manager.setActive(Boolean.parseBoolean(jtxtManagerActive.getText()));
 		ManagerDB4O.INST.storeManager(manager);
 		DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
 		model.setRowCount(0);
@@ -745,23 +749,31 @@ public class index extends javax.swing.JFrame {
 	}
     }//GEN-LAST:event_jButtonAddManagerActionPerformed
 
-    private void jButtonEditManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditManagerActionPerformed
+    private void jButtonUpdateManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateManagerActionPerformed
 	try {
-	    if (!jtxtIdManager.getText().isEmpty() || !jtxtlastNameManager.getText().isEmpty() || !jtxtclubManager.getText().isEmpty()
-			    || !jtxtdobManager.getText().isEmpty() || !jtxtcountryManager.getText().isEmpty() || !jtxtactiveManager.getText().isEmpty()) {
-		Manager manager = new Manager();
+	    if (!jtxtManagerId.getText().isEmpty() || !jtxtManagerLastName.getText().isEmpty() || !jtxtManagerName.getText().isEmpty()
+			    || !jtxtManagerDob.getText().isEmpty() || !jtxtManagerCountry.getText().isEmpty() || !jtxtManagerActive.getText().isEmpty()) {
+		Manager manager = managers.get(indexManager);
+		manager.setActive(Boolean.parseBoolean(jtxtManagerActive.getText()));
+		manager.setClub(jtxtManagerClub.getText());
+		manager.setDob(Long.parseLong(jtxtManagerDob.getText()));
+		manager.setFirstName(jtxtManagerFirstName.getText());
+		manager.setId(jtxtManagerId.getText());
+		manager.setLastName(jtxtManagerLastName.getText());
+		manager.setName(jtxtManagerName.getText());
+		
 		JOptionPane.showMessageDialog(null, "Update sucessful!");
 	    }
 	} catch (Exception e) {
 	    JOptionPane.showMessageDialog(null, e);
 	}
-    }//GEN-LAST:event_jButtonEditManagerActionPerformed
+    }//GEN-LAST:event_jButtonUpdateManagerActionPerformed
 
     private void jButtonDeleteManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteManagerActionPerformed
 	try {
-	    if (!jtxtIdManager.getText().isEmpty()) {
+	    if (!jtxtManagerId.getText().isEmpty()) {
 		Manager manager = new Manager();
-		manager.setFirstName(jtxtIdManager.getText());
+		manager.setFirstName(jtxtManagerId.getText());
 		ManagerDB4O.INST.deleteManagerById(manager);
 		DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
 		model.setRowCount(0);
@@ -795,16 +807,16 @@ public class index extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRefreshClubActionPerformed
 
     private void jTableManagerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableManagerMouseClicked
-	int i = jTableManager.getSelectedRow();
+	indexManager = jTableManager.getSelectedRow();
 	TableModel model = jTableManager.getModel();
-	jtxtIdManager.setText(model.getValueAt(i, 0).toString());
-	jtxtNameManager.setText(model.getValueAt(i, 1).toString());
-	jtxtfirstNameManager.setText(model.getValueAt(i, 2).toString());
-	jtxtlastNameManager.setText(model.getValueAt(i, 3).toString());
-	jtxtclubManager.setText(model.getValueAt(i, 4).toString());
-	jtxtdobManager.setText(model.getValueAt(i, 5).toString());
-	jtxtcountryManager.setText(model.getValueAt(i, 6).toString());
-	jtxtactiveManager.setText(model.getValueAt(i, 7).toString());
+	jtxtManagerId.setText(model.getValueAt(indexManager, 0).toString());
+	jtxtManagerName.setText(model.getValueAt(indexManager, 1).toString());
+	jtxtManagerFirstName.setText(model.getValueAt(indexManager, 2).toString());
+	jtxtManagerLastName.setText(model.getValueAt(indexManager, 3).toString());
+	jtxtManagerClub.setText(model.getValueAt(indexManager, 4).toString());
+	jtxtManagerDob.setText(model.getValueAt(indexManager, 5).toString());
+	jtxtManagerCountry.setText(model.getValueAt(indexManager, 6).toString());
+	jtxtManagerActive.setText(model.getValueAt(indexManager, 7).toString());
     }//GEN-LAST:event_jTableManagerMouseClicked
 
     private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
@@ -929,19 +941,21 @@ public class index extends javax.swing.JFrame {
 	jTableSearch.setModel(model);
     }//GEN-LAST:event_jButton_SearchActionPerformed
 
-    private void jButtonEditManager1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditManager1ActionPerformed
-	jtxtIdManager.setText("");
-	jtxtlastNameManager.setText("");
-	jtxtcountryManager.setText("");
-	jtxtclubManager.setText("");
-	jtxtdobManager.setText("");
-	jtxtcountryManager.setText("");
-	jtxtactiveManager.setText("");
-    }//GEN-LAST:event_jButtonEditManager1ActionPerformed
+    private void jButtonClearManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearManagerActionPerformed
+	jtxtManagerId.setText("");
+	jtxtManagerLastName.setText("");
+	jtxtManagerCountry.setText("");
+	jtxtManagerClub.setText("");
+	jtxtManagerDob.setText("");
+	jtxtManagerCountry.setText("");
+	jtxtManagerActive.setText("");
+	jtxtManagerName.setText("");
+	jtxtManagerFirstName.setText("");
+    }//GEN-LAST:event_jButtonClearManagerActionPerformed
 
-    private void jButtonEditManager1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditManager1MouseClicked
+    private void jButtonClearManagerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClearManagerMouseClicked
 	// TODO add your handling code here:
-    }//GEN-LAST:event_jButtonEditManager1MouseClicked
+    }//GEN-LAST:event_jButtonClearManagerMouseClicked
 
     /**
      * @param args the command line arguments
@@ -999,20 +1013,19 @@ public class index extends javax.swing.JFrame {
     }
 
     public void showManager() {
-	java.util.List<Manager> listResult = new ArrayList<>();
-	listResult = ManagerDB4O.INST.listAllManagers();
+	managers = ManagerDB4O.INST.listAllManagers();
 	DefaultTableModel model = (DefaultTableModel) jTableManager.getModel();
 	model.setRowCount(0);
 	Object[] row = new Object[8];
-	for (int i = 0; i < listResult.size(); i++) {
-	    row[0] = listResult.get(i).getId();
-	    row[1] = listResult.get(i).getName();
-	    row[2] = listResult.get(i).getFirstName();
-	    row[3] = listResult.get(i).getLastName();
-	    row[4] = listResult.get(i).getClub();
-	    row[5] = listResult.get(i).getDob();
-	    row[6] = listResult.get(i).getCountry();
-	    row[7] = listResult.get(i).isActive();
+	for (int i = 0; i < managers.size(); i++) {
+	    row[0] = managers.get(i).getId();
+	    row[1] = managers.get(i).getName();
+	    row[2] = managers.get(i).getFirstName();
+	    row[3] = managers.get(i).getLastName();
+	    row[4] = managers.get(i).getClub();
+	    row[5] = managers.get(i).getDob();
+	    row[6] = managers.get(i).getCountry();
+	    row[7] = managers.get(i).isActive();
 	    model.addRow(row);
 	}
 	jTableManager.setModel(model);
@@ -1033,38 +1046,20 @@ public class index extends javax.swing.JFrame {
 	jTableClub.setModel(model);
     }
 
-//    public void show_Player_Search(Player player) {
-//        java.util.List<Player> listResult = new ArrayList<>();
-//        listResult = PlayerDB4O.INST.searchPlayersByAdvancedQuery(player);
-//        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-//        Object[] row = new Object[7];
-//        for (int i = 0; i < listResult.size(); i++) {
-//            row[0] = listResult.get(i).getId();
-//            row[1] = listResult.get(i).getName();
-//            row[2] = listResult.get(i).getCountry();
-//            row[3] = listResult.get(i).getClub();
-//            row[4] = listResult.get(i).getDob();
-//            row[5] = listResult.get(i).getPos();
-//            row[6] = listResult.get(i).getPosInfo();
-//            model.addRow(row);
-//        }
-//        jTable1.setModel(model);
-//    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonAddClub;
     private javax.swing.JButton jButtonAddManager;
+    private javax.swing.JButton jButtonClearManager;
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonDeleteClub;
     private javax.swing.JButton jButtonDeleteManager;
     private javax.swing.JButton jButtonEdit;
     private javax.swing.JButton jButtonEditClub;
-    private javax.swing.JButton jButtonEditManager;
-    private javax.swing.JButton jButtonEditManager1;
     private javax.swing.JButton jButtonRefresh;
     private javax.swing.JButton jButtonRefreshClub;
     private javax.swing.JButton jButtonRefreshManager;
+    private javax.swing.JButton jButtonUpdateManager;
     private javax.swing.JButton jButton_Search;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1107,23 +1102,23 @@ public class index extends javax.swing.JFrame {
     private javax.swing.JTable jTableManager;
     private javax.swing.JTable jTableSearch;
     private javax.swing.JTextField jtxtCountrySearch;
-    private javax.swing.JTextField jtxtIdManager;
-    private javax.swing.JTextField jtxtNameManager;
+    private javax.swing.JTextField jtxtManagerActive;
+    private javax.swing.JTextField jtxtManagerClub;
+    private javax.swing.JTextField jtxtManagerCountry;
+    private javax.swing.JTextField jtxtManagerDob;
+    private javax.swing.JTextField jtxtManagerFirstName;
+    private javax.swing.JTextField jtxtManagerId;
+    private javax.swing.JTextField jtxtManagerLastName;
+    private javax.swing.JTextField jtxtManagerName;
     private javax.swing.JTextField jtxtNameSearch;
     private javax.swing.JTextField jtxtPosSearch;
     private javax.swing.JTextField jtxtabbrClub;
-    private javax.swing.JTextField jtxtactiveManager;
     private javax.swing.JTextField jtxtclub;
-    private javax.swing.JTextField jtxtclubManager;
     private javax.swing.JTextField jtxtcountry;
-    private javax.swing.JTextField jtxtcountryManager;
     private javax.swing.JTextField jtxtdob;
-    private javax.swing.JTextField jtxtdobManager;
-    private javax.swing.JTextField jtxtfirstNameManager;
     private javax.swing.JTextField jtxtfromAgeSearch;
     private javax.swing.JTextField jtxtid;
     private javax.swing.JTextField jtxtidClub;
-    private javax.swing.JTextField jtxtlastNameManager;
     private javax.swing.JTextField jtxtname;
     private javax.swing.JTextField jtxtpos;
     private javax.swing.JTextField jtxtposInfo;

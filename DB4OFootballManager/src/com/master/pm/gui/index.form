@@ -173,25 +173,25 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jtxtactiveManager" linkSize="3" min="-2" pref="227" max="-2" attributes="0"/>
-                                      <Component id="jtxtlastNameManager" linkSize="3" min="-2" pref="158" max="-2" attributes="0"/>
+                                      <Component id="jtxtManagerActive" linkSize="3" min="-2" pref="227" max="-2" attributes="0"/>
+                                      <Component id="jtxtManagerLastName" linkSize="3" min="-2" pref="158" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jtxtIdManager" linkSize="3" pref="158" max="32767" attributes="0"/>
-                                          <Component id="jtxtNameManager" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jtxtfirstNameManager" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jtxtManagerId" linkSize="3" pref="158" max="32767" attributes="0"/>
+                                          <Component id="jtxtManagerName" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jtxtManagerFirstName" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <Component id="jtxtclubManager" linkSize="3" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
-                                      <Component id="jtxtdobManager" linkSize="3" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
-                                      <Component id="jtxtcountryManager" linkSize="3" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
+                                      <Component id="jtxtManagerClub" linkSize="3" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
+                                      <Component id="jtxtManagerDob" linkSize="3" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
+                                      <Component id="jtxtManagerCountry" linkSize="3" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jButtonAddManager" linkSize="7" min="-2" pref="81" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButtonEditManager1" linkSize="7" min="-2" pref="90" max="-2" attributes="0"/>
+                                  <Component id="jButtonClearManager" linkSize="7" min="-2" pref="90" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jButtonEditManager" linkSize="7" min="-2" pref="90" max="-2" attributes="0"/>
+                                  <Component id="jButtonUpdateManager" linkSize="7" min="-2" pref="90" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButtonDeleteManager" linkSize="7" min="-2" pref="77" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -208,48 +208,48 @@
                           <EmptySpace pref="17" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jtxtIdManager" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtxtManagerId" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jtxtNameManager" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtxtManagerName" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jtxtfirstNameManager" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtxtManagerFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jtxtlastNameManager" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtxtManagerLastName" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jtxtclubManager" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtxtManagerClub" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jtxtdobManager" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtxtManagerDob" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jtxtcountryManager" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtxtManagerCountry" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jtxtactiveManager" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtxtManagerActive" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jButtonAddManager" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButtonEditManager1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButtonEditManager" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonClearManager" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonUpdateManager" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButtonDeleteManager" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButtonRefreshManager" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -259,17 +259,17 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="jtxtcountryManager">
+                <Component class="javax.swing.JTextField" name="jtxtManagerCountry">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jtxtactiveManager">
+                <Component class="javax.swing.JTextField" name="jtxtManagerActive">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jtxtIdManager">
+                <Component class="javax.swing.JTextField" name="jtxtManagerId">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jtxtlastNameManager">
+                <Component class="javax.swing.JTextField" name="jtxtManagerLastName">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jtxtclubManager">
+                <Component class="javax.swing.JTextField" name="jtxtManagerClub">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jtxtdobManager">
+                <Component class="javax.swing.JTextField" name="jtxtManagerDob">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel4">
                   <Properties>
@@ -312,12 +312,12 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddManagerActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButtonEditManager">
+                <Component class="javax.swing.JButton" name="jButtonUpdateManager">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Update"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEditManagerActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonUpdateManagerActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButtonDeleteManager">
@@ -336,14 +336,14 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRefreshManagerActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButtonEditManager1">
+                <Component class="javax.swing.JButton" name="jButtonClearManager">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Clear"/>
                     <Property name="name" type="java.lang.String" value="jtxtClearManager" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonEditManager1MouseClicked"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEditManager1ActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonClearManagerMouseClicked"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonClearManagerActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel7">
@@ -358,9 +358,9 @@
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jtxtNameManager">
+                <Component class="javax.swing.JTextField" name="jtxtManagerName">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jtxtfirstNameManager">
+                <Component class="javax.swing.JTextField" name="jtxtManagerFirstName">
                 </Component>
               </SubComponents>
             </Container>
