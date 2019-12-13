@@ -762,6 +762,8 @@ public class index extends javax.swing.JFrame {
 		manager.setLastName(jtxtManagerLastName.getText());
 		manager.setName(jtxtManagerName.getText());
 		
+		ManagerDB4O.INST.updateManagerById(manager);
+		
 		JOptionPane.showMessageDialog(null, "Update sucessful!");
 	    }
 	} catch (Exception e) {
