@@ -207,9 +207,9 @@ public class Crawler {
 
     public static void main(String[] args) {
 	Crawler c = new Crawler();
-	c.crawlPlayer();
+//	c.crawlPlayer();
 //	c.crawlClub();
-//	c.crawlManager();
+	c.crawlManager();
 	System.exit(0);
     }
 }
