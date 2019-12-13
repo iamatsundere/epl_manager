@@ -8,6 +8,7 @@ package com.master.pm.dbal;
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
+import com.db4o.config.EmbeddedConfiguration;
 import com.db4o.query.Predicate;
 import com.master.pm.entity.Player;
 import java.util.ArrayList;
@@ -21,19 +22,7 @@ public class PlayerDB4O {
 
     public static final PlayerDB4O INST = new PlayerDB4O();
     private static final String DB4OFILENAME = "data/players_db";
-    private static final ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
-
-    public void base() {
-	//ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
-	try {
-	} finally {
-	    //db.close();
-	}
-    }
-
-    public void closeDB() {
-	db.close();
-    }
+    private final ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
 
     public void storePlayer(Player entry) {
 	//ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
@@ -41,12 +30,11 @@ public class PlayerDB4O {
 	    db.store(entry);
 	    System.out.println("Stored " + entry);
 	} finally {
-	    db.close();
+	    //db.close();
 	}
     }
 
     public void updatePlayerById(Player entry) {
-	//ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
 	try {
 	    Player player = new Player();
 	    player.setId(entry.getId());
@@ -106,12 +94,11 @@ public class PlayerDB4O {
     }
 
     public List<Player> searchPlayersByAdvancedQuery(String name, String country, String pos, int fromAge, int toAge) {
-	//ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB4OFILENAME);
 	List<Player> listResult = new ArrayList<>();
 	try {
 	    long now = System.currentTimeMillis() / 1000;
-	    long from = now - fromAge * 86400;
-	    long to = now - toAge * 86400;
+	    long from = now - fromAge * 86400 * 365;
+	    long to = now - toAge * 86400 * 365;
 
 	    listResult = db.query(new Predicate<Player>() {
 		@Override
@@ -119,13 +106,16 @@ public class PlayerDB4O {
 		    return (name == "" ? true : player.getName().contains(name))
 				    && (country == "" ? true : player.getCountry().contains(country))
 				    && (pos == "" ? true : player.getPos().contains(pos))
-				    && (fromAge == -1 ? true : player.getDob() >= from)
-				    && (toAge == -1 ? true : player.getDob() <= to);
+				    && (fromAge == -1 ? true : player.getDob() <= from)
+				    && (toAge == -1 ? true : player.getDob() >= to);
 		}
 	    });
 	    return listResult;
+	} catch (Exception ex) {
+	    System.out.println();
+	    return new ArrayList<>();
 	} finally {
-	    //db.close();
+//	    //db.close();
 	}
     }
 
