@@ -60,7 +60,8 @@ public class Crawler {
 			try {
 			    JSONObject date = (JSONObject) ((JSONObject) player.get("birth")).get("date");
 			    String dob = date.get("millis").toString();
-			    entry.setDob(new BigDecimal(dob).intValue());
+//			    System.out.println(dob + "_" + new BigDecimal(dob).longValue());
+			    entry.setDob((new BigDecimal(dob).longValue()) / 1000);
 			} catch (Exception ex) {
 			    entry.setDob(0);
 			}
@@ -92,7 +93,7 @@ public class Crawler {
 			entry.setSaves(0);
 			entry.setYellowCards(0);
 
-			System.out.println(entry);
+//			System.out.println(entry);
 			PlayerDB4O.INST.storePlayer(entry);
 		    } catch (Exception ex) {
 			ex.printStackTrace();
@@ -207,8 +208,8 @@ public class Crawler {
     public static void main(String[] args) {
 	Crawler c = new Crawler();
 	c.crawlPlayer();
-	c.crawlClub();
-	c.crawlManager();
+//	c.crawlClub();
+//	c.crawlManager();
 	System.exit(0);
     }
 }

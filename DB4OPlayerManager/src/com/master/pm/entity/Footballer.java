@@ -19,7 +19,7 @@ public class Footballer extends Profile {
     private String firstName;
     private String lastName;
     private String club;
-    private int dob;
+    private long dob;
     private String country;
 
     public Footballer() {
@@ -57,11 +57,11 @@ public class Footballer extends Profile {
 	this.club = club;
     }
 
-    public int getDob() {
+    public long getDob() {
 	return dob;
     }
 
-    public void setDob(int dob) {
+    public void setDob(long dob) {
 	this.dob = dob;
     }
 
