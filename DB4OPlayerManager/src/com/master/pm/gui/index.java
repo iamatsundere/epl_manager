@@ -885,7 +885,7 @@ public class index extends javax.swing.JFrame {
 	    row[3] = listResult.get(i).getPos();
 	    model.addRow(row);
 	}
-	jTableManager.setModel(model);
+	jTableSearch.setModel(model);
     }//GEN-LAST:event_jButton_SearchActionPerformed
 
     /**
